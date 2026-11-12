@@ -1,0 +1,8 @@
+{
+  "python": "3.12.7",
+  "numpy": "1.26.4",
+  "pandas": "2.3.3",
+  "matplotlib": "3.10.6",
+  "source_sha256": "6a7731098835569642f41ff5386c5929dafbb255ec7b6abd3a5e64da1e06224e",
+  "script_sha256": "77c67bc3f90a640c9486e428514815ba4b83e21142195059ab51e3ce7aa3e234"
+}

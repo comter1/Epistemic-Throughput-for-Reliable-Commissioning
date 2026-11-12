@@ -1,0 +1,519 @@
+[
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 0,
+    "policy": "greedy",
+    "first_action": [
+      "T",
+      "Oq"
+    ],
+    "first_cost": 2,
+    "one_step_eig": 0.3165505962396804
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 0,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Oq"
+    ],
+    "first_cost": 2,
+    "one_step_eig": 0.3165505962396804
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 0,
+    "policy": "single",
+    "first_action": [
+      "T"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.2767803276644931
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 1,
+    "policy": "greedy",
+    "first_action": [
+      "T",
+      "Os"
+    ],
+    "first_cost": 2,
+    "one_step_eig": 0.4406251893762756
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 1,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Os"
+    ],
+    "first_cost": 2,
+    "one_step_eig": 0.4406251893762756
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 1,
+    "policy": "single",
+    "first_action": [
+      "T"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.32132807941952124
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 2,
+    "policy": "greedy",
+    "first_action": [
+      "Os",
+      "Oq"
+    ],
+    "first_cost": 2,
+    "one_step_eig": 0.3387311459135254
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 2,
+    "policy": "no_cal",
+    "first_action": [
+      "Os",
+      "Oq"
+    ],
+    "first_cost": 2,
+    "one_step_eig": 0.3387311459135254
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 2,
+    "policy": "single",
+    "first_action": [
+      "Os"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.18467138833441132
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 3,
+    "policy": "greedy",
+    "first_action": [
+      "T",
+      "Os"
+    ],
+    "first_cost": 2,
+    "one_step_eig": 0.36720204522036437
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 3,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Os"
+    ],
+    "first_cost": 2,
+    "one_step_eig": 0.36720204522036437
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 3,
+    "policy": "single",
+    "first_action": [
+      "T"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.2532963432092131
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 4,
+    "policy": "greedy",
+    "first_action": [],
+    "first_cost": 0,
+    "one_step_eig": 0
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 4,
+    "policy": "no_cal",
+    "first_action": [],
+    "first_cost": 0,
+    "one_step_eig": 0
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 2,
+    "x0": 4,
+    "policy": "single",
+    "first_action": [],
+    "first_cost": 0,
+    "one_step_eig": 0
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 0,
+    "policy": "greedy",
+    "first_action": [
+      "T",
+      "Os",
+      "Ds"
+    ],
+    "first_cost": 4,
+    "one_step_eig": 0.36844199804652367
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 0,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Os",
+      "Oq"
+    ],
+    "first_cost": 3,
+    "one_step_eig": 0.3555024602021343
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 0,
+    "policy": "single",
+    "first_action": [
+      "T"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.2767803276644931
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 1,
+    "policy": "greedy",
+    "first_action": [
+      "T",
+      "Os",
+      "Ds"
+    ],
+    "first_cost": 4,
+    "one_step_eig": 0.5909066459451267
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 1,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Os",
+      "Oq"
+    ],
+    "first_cost": 3,
+    "one_step_eig": 0.5467300189534343
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 1,
+    "policy": "single",
+    "first_action": [
+      "T"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.32132807941952124
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 2,
+    "policy": "greedy",
+    "first_action": [
+      "Os",
+      "Oq",
+      "Dq"
+    ],
+    "first_cost": 4,
+    "one_step_eig": 0.5253460022042691
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 2,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Os",
+      "Oq"
+    ],
+    "first_cost": 3,
+    "one_step_eig": 0.4419082827034462
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 2,
+    "policy": "single",
+    "first_action": [
+      "Os"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.18467138833441132
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 3,
+    "policy": "greedy",
+    "first_action": [
+      "T",
+      "Os",
+      "Ds"
+    ],
+    "first_cost": 4,
+    "one_step_eig": 0.5047906564209377
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 3,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Os",
+      "Oq"
+    ],
+    "first_cost": 3,
+    "one_step_eig": 0.46204603610135364
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 3,
+    "policy": "single",
+    "first_action": [
+      "T"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.2532963432092131
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 4,
+    "policy": "greedy",
+    "first_action": [],
+    "first_cost": 0,
+    "one_step_eig": 0
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 4,
+    "policy": "no_cal",
+    "first_action": [],
+    "first_cost": 0,
+    "one_step_eig": 0
+  },
+  {
+    "calibration_cost": 2,
+    "budget": 4,
+    "x0": 4,
+    "policy": "single",
+    "first_action": [],
+    "first_cost": 0,
+    "one_step_eig": 0
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 0,
+    "policy": "greedy",
+    "first_action": [
+      "T",
+      "Os",
+      "Ds"
+    ],
+    "first_cost": 6,
+    "one_step_eig": 0.36844199804652367
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 0,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Os",
+      "Oq"
+    ],
+    "first_cost": 3,
+    "one_step_eig": 0.3555024602021343
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 0,
+    "policy": "single",
+    "first_action": [
+      "T"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.2767803276644931
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 1,
+    "policy": "greedy",
+    "first_action": [
+      "T",
+      "Os",
+      "Ds"
+    ],
+    "first_cost": 6,
+    "one_step_eig": 0.5909066459451267
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 1,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Os",
+      "Oq"
+    ],
+    "first_cost": 3,
+    "one_step_eig": 0.5467300189534343
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 1,
+    "policy": "single",
+    "first_action": [
+      "T"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.32132807941952124
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 2,
+    "policy": "greedy",
+    "first_action": [
+      "Os",
+      "Oq",
+      "Dq"
+    ],
+    "first_cost": 6,
+    "one_step_eig": 0.5253460022042691
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 2,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Os",
+      "Oq"
+    ],
+    "first_cost": 3,
+    "one_step_eig": 0.4419082827034462
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 2,
+    "policy": "single",
+    "first_action": [
+      "Os"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.18467138833441132
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 3,
+    "policy": "greedy",
+    "first_action": [
+      "T",
+      "Os",
+      "Ds"
+    ],
+    "first_cost": 6,
+    "one_step_eig": 0.5047906564209377
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 3,
+    "policy": "no_cal",
+    "first_action": [
+      "T",
+      "Os",
+      "Oq"
+    ],
+    "first_cost": 3,
+    "one_step_eig": 0.46204603610135364
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 3,
+    "policy": "single",
+    "first_action": [
+      "T"
+    ],
+    "first_cost": 1,
+    "one_step_eig": 0.2532963432092131
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 4,
+    "policy": "greedy",
+    "first_action": [],
+    "first_cost": 0,
+    "one_step_eig": 0
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 4,
+    "policy": "no_cal",
+    "first_action": [],
+    "first_cost": 0,
+    "one_step_eig": 0
+  },
+  {
+    "calibration_cost": 4,
+    "budget": 6,
+    "x0": 4,
+    "policy": "single",
+    "first_action": [],
+    "first_cost": 0,
+    "one_step_eig": 0
+  }
+]

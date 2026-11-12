@@ -1,0 +1,9 @@
+Source: complete_20261111_234532_for_review.zip
+SHA256: 6a7731098835569642f41ff5386c5929dafbb255ec7b6abd3a5e64da1e06224e
+27 configurations, 27 plots, 1404000 per-case evaluation rows.
+Recomputed all means, intervals, costs, rounds and supplied paired comparisons. No mismatch.
+budget=6 | greedy | gain=+0.4361
+budget=6 | greedy_no_calibration | gain=+0.5560
+budget=6 | greedy_single | gain=+0.3829
+budget=6 | greedy_single_no_calibration | gain=+0.3849
+结果已保存到：/work/finite/results/complete_20261111_234532/sweeps/rounds_2/seed_44/cal_cost_4

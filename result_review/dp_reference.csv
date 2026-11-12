@@ -1,0 +1,4 @@
+budget,scope,rounds,noise_mode,actions,dp_gain_bits,greedy_same_library_gain_bits,gap_bits,estimator
+0,single_measurements,2,independent,"[[""T""], [""Os""], [""Oq""], [""Ds""], [""Dq""]]",0.0,0.0,0.0,exact_enumeration_no_MC_interval
+1,single_measurements,2,independent,"[[""T""], [""Os""], [""Oq""], [""Ds""], [""Dq""]]",0.2261753772996875,0.2261753772996875,0.0,exact_enumeration_no_MC_interval
+2,single_measurements,2,independent,"[[""T""], [""Os""], [""Oq""], [""Ds""], [""Dq""]]",0.3841949319404202,0.3841949319404202,0.0,exact_enumeration_no_MC_interval
