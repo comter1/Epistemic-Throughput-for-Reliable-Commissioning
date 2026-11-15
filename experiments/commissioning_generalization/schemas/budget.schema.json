@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "executions",
+    "bytes",
+    "calibrations",
+    "decisions"
+  ],
+  "properties": {
+    "executions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "calibrations": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "decisions": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

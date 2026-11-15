@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "action_key",
+    "records",
+    "calibration_bursts",
+    "visible_status",
+    "actual_cost"
+  ],
+  "properties": {
+    "action_key": {
+      "type": "string"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "port",
+          "local_time_s",
+          "message_token",
+          "event_type",
+          "values",
+          "missing"
+        ],
+        "properties": {
+          "port": {
+            "type": "string"
+          },
+          "local_time_s": {
+            "type": "number"
+          },
+          "message_token": {
+            "type": "string"
+          },
+          "event_type": {
+            "enum": [
+              "receive",
+              "send",
+              "sample"
+            ]
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 14
+          },
+          "missing": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "calibration_bursts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "pair",
+          "timestamps_s"
+        ],
+        "properties": {
+          "pair": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "timestamps_s": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          }
+        }
+      }
+    },
+    "visible_status": {
+      "enum": [
+        "ok",
+        "timeout",
+        "truncated",
+        "stopped"
+      ]
+    },
+    "actual_cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "executions",
+        "bytes",
+        "calibrations",
+        "decisions"
+      ],
+      "properties": {
+        "executions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "calibrations": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "decisions": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

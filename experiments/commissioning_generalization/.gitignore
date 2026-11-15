@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+third_party/
+/data/
+checkpoints/
+runs/
+*.parquet
+*.npz
+*.npy
+*.pt
+*.pth
+*.safetensors
+*.log
+*.tmp
+*.egg-info/
+# Small manifests, protocol documents and acceptance summaries may be committed explicitly.

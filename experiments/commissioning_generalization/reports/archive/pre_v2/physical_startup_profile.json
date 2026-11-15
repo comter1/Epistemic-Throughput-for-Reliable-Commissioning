@@ -1,0 +1,9 @@
+{
+  "cached_model_new_case_setup_seconds": 0.0013675770023837686,
+  "first_model_and_asset_setup_seconds": 0.13323426700662822,
+  "note": "Fresh process; includes MuJoCo import on first System construction. Separate MjData objects, shared immutable compiled model in later cases.",
+  "python_package_import_seconds": 0.14288826700067148,
+  "state": "passed",
+  "steady_execution_profile": "reports/execution_profile.json",
+  "technical_smoke": true
+}

@@ -1,0 +1,18 @@
+{
+  "anchors": [
+    "train-026-2ef626b68608",
+    "train-031-9a330075aa05",
+    "train-019-4db9ce3c5a12",
+    "train-005-ba23a8177f0e",
+    "train-016-0c4cc2555987",
+    "train-015-23c4915092a4",
+    "train-014-65054940ea19",
+    "train-012-7bd0d904f6ae"
+  ],
+  "rejections": {
+    "anchor_insufficient_distinct_variants": 1
+  },
+  "selection": "manifest-seeded structure/hash order; never simulator outcomes",
+  "source_projection": "/home/leiyo/work/cgx_data",
+  "variants_per_seen_anchor": 2
+}

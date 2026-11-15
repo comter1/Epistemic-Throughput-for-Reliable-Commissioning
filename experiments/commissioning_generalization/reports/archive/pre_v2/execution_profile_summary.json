@@ -1,0 +1,16 @@
+{
+  "executions": 1000,
+  "full_record": "/home/leiyo/work/cgx_data/reports/execution_profile.json",
+  "sha256": "a2b881c63ea5a27bfaa32dda468f0284aa7130ad0966635773b1c91316449041",
+  "summary": {
+    "mean_gzip_json_bytes": 160864.14,
+    "mean_gzip_wire_bytes": 81994.122,
+    "mean_seconds": 0.15236912399494032,
+    "mean_storage_seconds": 0.015370726777109666,
+    "mean_wire_bytes": 430283.488,
+    "p50_seconds": 0.1421216074959375,
+    "p95_seconds": 0.23363633500121067,
+    "total_wire_bytes": 430283488
+  },
+  "technical_smoke": true
+}

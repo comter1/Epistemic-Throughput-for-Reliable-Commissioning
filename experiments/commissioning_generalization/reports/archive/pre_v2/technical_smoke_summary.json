@@ -1,0 +1,245 @@
+{
+  "collection_executions": 504,
+  "collection_transitions": 618,
+  "destination": "/home/leiyo/work/cgx_data/technical_smoke/final_1794601954771419777",
+  "frozen_rollouts": 64,
+  "full_report": "/home/leiyo/work/cgx_data/reports/technical_smoke.json",
+  "independent_same_transcript_reads": 64,
+  "policy_actual_updates": {
+    "gnn_adaptive": 2,
+    "gnn_depth2": 2,
+    "gnn_fixed_plan": 2,
+    "gnn_myopic": 2,
+    "transformer_adaptive": 2
+  },
+  "policy_runs": 5,
+  "reader_actual_updates": {
+    "crossfit_0": 2,
+    "crossfit_1": 2,
+    "crossfit_2": 2,
+    "final": 2,
+    "independent": 2
+  },
+  "reader_runs": 5,
+  "runtime_revalidation": {
+    "checkpoint_reuse": "Previously executed technical weights; all selected checkpoint bytes verified by loaders",
+    "elapsed_seconds": 50.37870165100321,
+    "frozen_rollouts": 64,
+    "original_pipeline_report": "/home/leiyo/work/cgx_data/technical_smoke/final_1794601954771419777/reports/technical_smoke.json",
+    "original_pipeline_report_hash": "3c7c9133920f1cbb86a73e8acd544ca10058f7fe9b51df55139666883f19d4b7",
+    "repair_results": [
+      {
+        "abstained": false,
+        "audit_all_pass": true,
+        "audit_count": 20,
+        "audit_errors": [
+          0.017557728237278643,
+          0.018208047047497053,
+          0.01697111490310629,
+          0.018094430326916374,
+          0.017066770253456598,
+          0.017598020184159333,
+          0.016967246958785116,
+          0.01888209755162472,
+          0.017892687272625895,
+          0.01654250735172054,
+          0.01691892238288225,
+          0.01744401857449168,
+          0.016903225063593697,
+          0.01811235790009374,
+          0.01728849288519148,
+          0.018057851787035603,
+          0.01775422786176594,
+          0.017280908611720693,
+          0.01757355831363723,
+          0.0175823739457395
+        ],
+        "audit_observation_hashes": [
+          "8b086457b5d70221df4b0bdb936eec2ce29ce8b1033474c2c8f53057a26325e9",
+          "217cdb6a6ab387cb8b2b6707a7128fb2ef5e80bfa691381130f65d6855f787f8",
+          "747f54947aeb4569e06f9ad1610a87682c765f2c4f4a2d08b4f547eb5444cd58",
+          "50524523e70b2d77261a81c0a9f3f83f89cb1143ed3d65beaa71c0e9d6aba6e7",
+          "806d70226af3e2793b8eb4019f62432cb51dca18e38012d9a4b7fce7d76b95a4",
+          "824717a393d409e6d55abfc1812e37fe18ff99714f17afe8db3cf40c64ff17e5",
+          "5c1405425a866fb9921ae9f82a9c8c403cc8dc9a14e15bf7072f5c42d12019c3",
+          "6e5d55e8554a73b5a23a9b87e9a17a8b27def0446e73f11f68577c9cc0204a27",
+          "0a3fd0c7cde76bd47e548120ce4d9a2ee3788229d37ed4f9ee049c065d45db98",
+          "56636db2f67657a7b775bf7c8d0f17c0721a84479ce5c2ce07f9e377a374dd12",
+          "96558d7635bce547f5ef31f9ddee59ce7ae3871f1df4476e6b91cfdebd951988",
+          "0abf2c24c48032446b483e2cc833988b14fa5b8b15915b97ee1b7af576d0bf2d",
+          "2bb5f0bf0022b63e79a45ebfa6a6e92b01e766d1508e7557fe1c87e35137839e",
+          "a33ed69655d2226d9bd2e264687b777ac4f8040ba5fabeffd82faf166610740c",
+          "1a87f55534a2ebf9f6f7678930426f57ae85b2889d7bdad17ae1b1d748282022",
+          "a9025d0684e32a8d29da3bbaa3fe11b9c77eae3934f858d317452d9e3d700a0e",
+          "52846eff5f185ad7e4a83680bcb003b3d3a1bc5c2ec19c616b8b187c8bc32f88",
+          "35e2925b1b663be56179470078432344d549dd6d6ca29d30ccbdc853597bf4e3",
+          "2d0c2dbc8f25bf6a9395b380ffba1bd515d0edb486c76d68db384e75653d782c",
+          "ed04028732399b6a4e63442065d33db4e1d223045ae13e643192bdfb55b3c613"
+        ],
+        "audit_pass_count": 20,
+        "changed_healthy_node": false,
+        "declared_completion": true,
+        "execution_errors": [],
+        "external_audit_cost": {
+          "executions": 20,
+          "wall_seconds": 2.318664502032334
+        },
+        "independent_audit_seed_hash": "1bf55e3bcd1241ae32ca4e9926ef8e2b903a709515ea79adde18242aca8d6d64",
+        "public_cost": {
+          "bytes": 25344,
+          "executions": 2,
+          "wall_seconds": 0.2310046620114008
+        },
+        "public_observation_hashes": [
+          "39e5ff8e2507d1adec1226445c93424c8eb33b89df8771844efe0223b21adaca",
+          "708148952c569d393aaf992d8faa3816a09b8bb0694fc6f1a84dc78bc6eea0ac"
+        ],
+        "public_pass": true,
+        "public_verification_count": 2,
+        "repair_node": null,
+        "repair_seconds": 0.0,
+        "selected_repair": "healthy"
+      },
+      {
+        "abstained": false,
+        "audit_all_pass": false,
+        "audit_count": 20,
+        "audit_errors": [
+          0.02017720472717716,
+          0.019924455514050924,
+          0.01830368472863778,
+          0.02125904827676747,
+          0.017560353969124604,
+          0.019419722121389694,
+          0.01754069629105843,
+          0.017745943811072723,
+          0.01928616908148271,
+          0.018820660181675514,
+          0.018556443293421362,
+          0.01922214954138629,
+          0.017627969238063382,
+          0.018019467674947033,
+          0.018442251300721458,
+          0.018013083170223054,
+          0.017366487244051324,
+          0.01850566867263528,
+          0.019066099480799882,
+          0.020038879953884675
+        ],
+        "audit_observation_hashes": [
+          "d62b514138d34f10284cea468487b9617d0f56c4a262cd3424c91c7261f15bdd",
+          "22228ca74a28747e6a2c5f7321635fb7325fcc7a286a0c5816c083a1fb7f72e9",
+          "f92526df04d0df47aa7f9bb8e7549bdf95667efd3eb088dd9982d7786751daf3",
+          "0b283a636be2fca708f9b7adfb113917505413e313a9139e0ebe5f9b11e9b4ef",
+          "24d72dba826957be51c6a9bfd92a57a30f07bd1313694cef9ae803b1dfc753ef",
+          "3b6d413d653330b90b71595a9abfa2945037bd3eea64a915d203eff0a2f14b6b",
+          "b18842490985aa4248eed37b000f029f27f4e1cb745b696ea6724f4189367161",
+          "5c39a5382e3473e3334ae9ca79c24a4c75c4444a1a683597207707ca11ea5dab",
+          "7819bec485be20b46f49fbbd4ba953dc8119d683165fc3f05a7bd9fe49cd0014",
+          "e549cc83f793008882d47f2d45e07684a27f79d9a18ec9ea9b74e141ea66f82b",
+          "1db0e68d9a0eb128a43bd8851a3e8555b7513c35f8fc0ccddb27903450f657f5",
+          "ba0aa8a7f8759134ca5d7a99015f4777309ea7385241d4901b1e600eb0474c3c",
+          "98e6e956974aff5a141d3572460669fd8879ccb6724240e6658b63e90bbd7b00",
+          "839c7c389f890198338dc738a1d294af3db0a231b7632abdc501cd3a8a0660f3",
+          "9f5bd5e652462c3127b12b508af4b679c742c1ebac4b11f0cc278d2e3389b509",
+          "af9b670935902cc6beb878137bbb2638e7e3908a0e7ac87a0db30bd5a44e50b8",
+          "e638147174ff1d415497edb3412c3466390e5d34606635be95dc54b14e7eadb6",
+          "266930edea4a8f2874c54bb140b0c90c52f7b02c1e288438693f518ebf7d7aef",
+          "20f50cfabaa73beb8b626e65d19e12f6492dda186057baaee19fa5088f22b79d",
+          "a406e42c1fac0574562c1a46c7d3da7d8f61b6388311100649e0773a7dc5fec6"
+        ],
+        "audit_pass_count": 17,
+        "changed_healthy_node": false,
+        "declared_completion": true,
+        "execution_errors": [],
+        "external_audit_cost": {
+          "executions": 20,
+          "wall_seconds": 2.3190615589701338
+        },
+        "independent_audit_seed_hash": "862f92666d4fb7e11a187327c6ed63e321941a65e348d47c971ced19023b1cd9",
+        "public_cost": {
+          "bytes": 25344,
+          "executions": 2,
+          "wall_seconds": 0.23097076198610011
+        },
+        "public_observation_hashes": [
+          "2106aa34a0875597097478f66153108c73b10f66ebb9a49fd5f05625ebdcc599",
+          "569c1b37f74c2c55490457036881c3aa604c9cfb7c2d921a1830a4324b0e9eab"
+        ],
+        "public_pass": true,
+        "public_verification_count": 2,
+        "repair_node": null,
+        "repair_seconds": 0.0,
+        "selected_repair": "healthy"
+      },
+      {
+        "abstained": false,
+        "audit_all_pass": null,
+        "audit_count": 0,
+        "audit_errors": [],
+        "audit_observation_hashes": [],
+        "audit_pass_count": 0,
+        "changed_healthy_node": false,
+        "declared_completion": false,
+        "execution_errors": [],
+        "external_audit_cost": {
+          "executions": 0,
+          "wall_seconds": 0.0
+        },
+        "independent_audit_seed_hash": "43e46d774841b484b4de3d7b5540f5162c5a66af31a43ce047ac7420abac0e31",
+        "public_cost": {
+          "bytes": 25472,
+          "executions": 2,
+          "wall_seconds": 0.2340305690013338
+        },
+        "public_observation_hashes": [
+          "4e9ac26cbcd3335f3ca5d74539b1ee5b460b3a16de2b5a9dc7a8e15f40ddd3c3",
+          "daed1a3c9c5be34c87a39d91f7d97ea7885e0b0e8a0390c4a1ee2406251fddcf"
+        ],
+        "public_pass": false,
+        "public_verification_count": 2,
+        "repair_node": null,
+        "repair_seconds": 0.0,
+        "selected_repair": "healthy"
+      },
+      {
+        "abstained": false,
+        "audit_all_pass": null,
+        "audit_count": 0,
+        "audit_errors": [],
+        "audit_observation_hashes": [],
+        "audit_pass_count": 0,
+        "changed_healthy_node": false,
+        "declared_completion": false,
+        "execution_errors": [],
+        "external_audit_cost": {
+          "executions": 0,
+          "wall_seconds": 0.0
+        },
+        "independent_audit_seed_hash": "17d11b8906342fde33f60fbff99941e51f1f43ad9a6036bb9e65a38b678ecc39",
+        "public_cost": {
+          "bytes": 25472,
+          "executions": 2,
+          "wall_seconds": 0.23175534601614345
+        },
+        "public_observation_hashes": [
+          "d1a36190e6f89864c08d40ca1ec44bbf72a475c4e22e8a9f20c9d4b753e34631",
+          "d39acf9792d64f6a8c3313a8e82dbfbdac70aef68bebd924cbdd7ee7904ba026"
+        ],
+        "public_pass": false,
+        "public_verification_count": 2,
+        "repair_node": null,
+        "repair_seconds": 0.0,
+        "selected_repair": "healthy"
+      }
+    ],
+    "same_transcript_reads": 64,
+    "source_hash": "96fa28f22d0fc1712a9a214e0d163eb04d073caf7b4dc1301163be84f79f66b6",
+    "state": "passed"
+  },
+  "scored_transitions": 465,
+  "sha256": "e278648b892978d741c6009faeaec0015707f627547bc49b726ebecce16ce162",
+  "source_hash": "96fa28f22d0fc1712a9a214e0d163eb04d073caf7b4dc1301163be84f79f66b6",
+  "state": "passed",
+  "technical_smoke": true
+}

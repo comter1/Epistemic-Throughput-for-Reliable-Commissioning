@@ -1,0 +1,107 @@
+{
+  "protocol_id": "CGX-2.0",
+  "state": "planned_not_launched",
+  "gpu_slots": 3,
+  "readers": [
+    "crossfit_0",
+    "crossfit_1",
+    "crossfit_2",
+    "final",
+    "independent"
+  ],
+  "policies": [
+    {
+      "method": "gnn_adaptive",
+      "seed": 11,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_adaptive",
+      "seed": 23,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_adaptive",
+      "seed": 37,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "transformer_adaptive",
+      "seed": 11,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "transformer_adaptive",
+      "seed": 23,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "transformer_adaptive",
+      "seed": 37,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_fixed_plan",
+      "seed": 11,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_fixed_plan",
+      "seed": 23,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_fixed_plan",
+      "seed": 37,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_myopic",
+      "seed": 11,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_myopic",
+      "seed": 23,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_myopic",
+      "seed": 37,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_depth2",
+      "seed": 11,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_depth2",
+      "seed": 23,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    },
+    {
+      "method": "gnn_depth2",
+      "seed": 37,
+      "maximum_updates": 100000,
+      "state": "not_started"
+    }
+  ],
+  "main_evaluation_cells": 147200,
+  "repair_audit_conditions": 6144,
+  "note": "Executable queue manifests are generated only after their sealed replay/OOF/checkpoint prerequisites exist."
+}

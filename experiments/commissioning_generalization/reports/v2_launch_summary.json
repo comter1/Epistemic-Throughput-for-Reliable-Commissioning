@@ -1,0 +1,37 @@
+{
+  "budget_definition": "B is maximum additional diagnostic executions:1,2,4; bytes/calibrations/runtime reported separately",
+  "collection_progress": {
+    "completed_cases": 2044,
+    "designated_cases": 4096,
+    "elapsed_seconds": 252.7392673400027,
+    "physical_executions": 65610,
+    "transitions": 80701
+  },
+  "current_step": "collect_train",
+  "driver_pid": 1119299,
+  "engineering_acceptance_scope": "61 software integrity checks with executed engineering fixtures; does not assert the formal main matrix has completed.",
+  "engineering_tests": 108,
+  "forecast_caveat": "Small warm replay and technical acquisition policies; formal cache misses, learned action mix and early stopping will change ETA. This is not a guaranteed upper bound.",
+  "formal_training_completed": false,
+  "frozen_test_completed": false,
+  "gpu_slots": 3,
+  "planning_hours": [
+    14.390133157372963,
+    56.149396337059116
+  ],
+  "prerequisite_hashes": {
+    "protocol_lock.json": "f2a68ae429d4e8643d1ab21fa70b583115863b540fc62979f0294c811471657a",
+    "reports/pytest.xml": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+    "reports/resource_forecast.json": "3f849d60b8a4e2fc19ba1548fbf450c3f02dc9885e6d585fdd6129fb46001b6f",
+    "reports/reused_data.json": "ca972204471e4b585c80af135f1e085cf930f254f75b80c442c03d0fcf6cf84b",
+    "reports/technical_smoke.json": "5b005765d84e0372e01ba8c9acfa87c8044b9e5bbf7ed3ae3c838bd8476cfca5"
+  },
+  "protocol_id": "CGX-2.0",
+  "reused": {
+    "train": 1470,
+    "validation": 486
+  },
+  "scientific_results_completed": false,
+  "state": "running",
+  "updated_at": "2026-11-13T22:26:24.284870+00:00"
+}

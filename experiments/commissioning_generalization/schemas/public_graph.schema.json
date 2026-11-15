@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cgx.local/public_graph.schema.json",
+  "title": "Public graph; no case truth",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "nodes",
+    "edges",
+    "clock_domains",
+    "sample_rates_hz"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cgx.graph.v1"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "ports",
+          "clock_domain",
+          "nominal"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "sensor",
+              "cache",
+              "adapter",
+              "controller",
+              "queue",
+              "actuator",
+              "splitter",
+              "merger"
+            ]
+          },
+          "ports": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "direction",
+                "width",
+                "unit",
+                "channels"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "direction": {
+                  "enum": [
+                    "in",
+                    "out"
+                  ]
+                },
+                "width": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 14
+                },
+                "unit": {
+                  "enum": [
+                    "state_rad",
+                    "command_rad",
+                    "internal_state",
+                    "internal_command"
+                  ]
+                },
+                "channels": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 6
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          "clock_domain": {
+            "type": "string"
+          },
+          "nominal": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "scale": {
+                "type": "number"
+              },
+              "offset": {
+                "type": "number"
+              },
+              "queue_delay_ticks": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "state_age_ticks": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "source_port",
+          "target",
+          "target_port",
+          "relation"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "source_port": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "target_port": {
+            "type": "string"
+          },
+          "relation": {
+            "enum": [
+              "state_flow",
+              "command_flow"
+            ]
+          }
+        }
+      }
+    },
+    "clock_domains": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "sample_rates_hz": {
+      "const": [
+        10,
+        50,
+        100
+      ]
+    }
+  }
+}

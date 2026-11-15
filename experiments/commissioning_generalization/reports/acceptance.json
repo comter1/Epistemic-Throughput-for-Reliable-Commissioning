@@ -1,0 +1,981 @@
+{
+  "counts": {
+    "blocked": 0,
+    "failed": 0,
+    "implemented_not_run": 0,
+    "not_started": 0,
+    "passed": 61
+  },
+  "items": {
+    "A01": {
+      "evidence": [
+        {
+          "path": "/work/Users/leiyo/cgx_data_v2/reports/legacy_integrity.json",
+          "sha256": "f90f5089cd97ef973a480a3c811fc0883b5fe18cccea9dacc02bb35b3bc6ec8d"
+        }
+      ],
+      "state": "passed"
+    },
+    "A02": {
+      "evidence": [
+        {
+          "path": "/work/Users/leiyo/cgx_data_v2/reports/legacy_integrity.json",
+          "sha256": "f90f5089cd97ef973a480a3c811fc0883b5fe18cccea9dacc02bb35b3bc6ec8d"
+        }
+      ],
+      "state": "passed"
+    },
+    "A03": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A03_generated_artifacts_reject_entire_repository"
+        }
+      ],
+      "state": "passed"
+    },
+    "A04": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A04_registered_counts_seeds_priors_and_no_hidden_schema_fields"
+        }
+      ],
+      "state": "passed"
+    },
+    "A05": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A05_A06_E11_missing_or_changed_prerequisite_never_passes"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A05_unimplemented_or_missing_prerequisite_cli_nonzero"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A05_registered_update_cap_and_real_manifest_inputs"
+        }
+      ],
+      "state": "passed"
+    },
+    "A06": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_corrupt_public_blob_cannot_resume_as_valid"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_transition_requires_success_marker_and_matching_hash"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A05_A06_E11_missing_or_changed_prerequisite_never_passes"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_failed_command_records_failure_not_success"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_E11_two_gpu_queue_and_corrupt_checkpoint_resume"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_failed_subprocess_or_invalid_marker_never_success[success-7]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_failed_subprocess_or_invalid_marker_never_success[missing_marker-0]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_failed_subprocess_or_invalid_marker_never_success[wrong_identity-0]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_failed_subprocess_or_invalid_marker_never_success[wrong_updates-0]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_failed_subprocess_or_invalid_marker_never_success[smoke-0]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_failed_subprocess_or_invalid_marker_never_success[missing_checkpoint-0]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_failed_subprocess_or_invalid_marker_never_success[malformed-0]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_spawn_failure_and_retry_evidence"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_validation_change_and_prerequisite_change_rejected"
+        }
+      ],
+      "state": "passed"
+    },
+    "D01": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D01_D09_names_and_continuous_parameters_do_not_change_identity"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D01_D02_D08_full_graph_manifest_and_matched_holdouts"
+        }
+      ],
+      "state": "passed"
+    },
+    "D02": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D01_D02_D08_full_graph_manifest_and_matched_holdouts"
+        }
+      ],
+      "state": "passed"
+    },
+    "D03": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D03_O10_store_rejects_private_fields"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D03_training_case_accessor_never_opens_heldout_truth"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D03_validation_callback_never_reads_test_private_files"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D03_D05_O10_L04_private_poison_and_id_bijection"
+        }
+      ],
+      "state": "passed"
+    },
+    "D04": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D04_eval_node_permutation_preserves_physics_and_pairing"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D04_D07_L10_L11_permutation_variable_heads[gnn]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D04_D07_L10_L11_permutation_variable_heads[transformer]"
+        }
+      ],
+      "state": "passed"
+    },
+    "D05": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D03_D05_O10_L04_private_poison_and_id_bijection"
+        }
+      ],
+      "state": "passed"
+    },
+    "D06": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D06_balanced_cases_and_rng_separation"
+        }
+      ],
+      "state": "passed"
+    },
+    "D07": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D07_legal_variable_targets_and_family_prior"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D04_D07_L10_L11_permutation_variable_heads[gnn]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D04_D07_L10_L11_permutation_variable_heads[transformer]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D07_heldout_size_uses_same_weights_and_valid_joint_softmax"
+        }
+      ],
+      "state": "passed"
+    },
+    "D08": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D01_D02_D08_full_graph_manifest_and_matched_holdouts"
+        }
+      ],
+      "state": "passed"
+    },
+    "D09": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D01_D09_names_and_continuous_parameters_do_not_change_identity"
+        }
+      ],
+      "state": "passed"
+    },
+    "E01": {
+      "evidence": [
+        {
+          "path": "/work/Users/leiyo/cgx_data_v2/reports/legacy_integrity.json",
+          "scope": "unchanged restricted finite regression, including actual same-library DP unit fixture",
+          "sha256": "f90f5089cd97ef973a480a3c811fc0883b5fe18cccea9dacc02bb35b3bc6ec8d"
+        }
+      ],
+      "state": "passed"
+    },
+    "E02": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E02_figure_deliverables_and_provenance_on_explicit_test_fixture"
+        }
+      ],
+      "state": "passed"
+    },
+    "E03": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E03_nan_prediction_retains_case_and_prior"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E03_runtime_timeout_keeps_denominator"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E03_fixed_plan_exception_retained_in_denominator"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E03_watchdog_interrupts_call_and_warmup_is_separate"
+        }
+      ],
+      "state": "passed"
+    },
+    "E04": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E04_system_bootstrap_equal_weight_and_pairing"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E04_bootstrap_weights_systems_not_number_of_case_rows"
+        }
+      ],
+      "state": "passed"
+    },
+    "E05": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E05_E11_result_inventory_missing_extra_and_tampering"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E05_matrix_executes_every_cell_and_resumes_by_payload_hash"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E05_matrix_catches_duplicated_case_despite_matching_count"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E05_missing_budget_or_seed_is_not_a_zero_result"
+        }
+      ],
+      "state": "passed"
+    },
+    "E06": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O09_E06_zero_budget_common_prior_and_full_reference_label"
+        }
+      ],
+      "state": "passed"
+    },
+    "E07": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E07_E08_verification_uses_independent_streams_and_no_hidden_feedback"
+        }
+      ],
+      "state": "passed"
+    },
+    "E08": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E07_E08_verification_uses_independent_streams_and_no_hidden_feedback"
+        }
+      ],
+      "state": "passed"
+    },
+    "E09": {
+      "evidence": [
+        {
+          "path": "/work/Users/leiyo/cgx_data_v2/reports/technical_smoke.json",
+          "scope": "actual independent neural rereading with unchanged acquired history hashes",
+          "sha256": "5b005765d84e0372e01ba8c9acfa87c8044b9e5bbf7ed3ae3c838bd8476cfca5"
+        }
+      ],
+      "state": "passed"
+    },
+    "E10": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E10_evaluator_strata_keep_healthy_abstentions_and_small_impact_faults"
+        }
+      ],
+      "state": "passed"
+    },
+    "E11": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A05_A06_E11_missing_or_changed_prerequisite_never_passes"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E05_E11_result_inventory_missing_extra_and_tampering"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E11_figure_hashes_refresh_without_self_reference"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_A06_E11_two_gpu_queue_and_corrupt_checkpoint_resume"
+        }
+      ],
+      "state": "passed"
+    },
+    "E12": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_E12_release_crc_marker_only_after_actual_archive"
+        }
+      ],
+      "state": "passed"
+    },
+    "L01": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L01_L02_L03_reward_loss_and_telescoping"
+        }
+      ],
+      "state": "passed"
+    },
+    "L02": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L01_L02_L03_reward_loss_and_telescoping"
+        }
+      ],
+      "state": "passed"
+    },
+    "L03": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L01_L02_L03_reward_loss_and_telescoping"
+        }
+      ],
+      "state": "passed"
+    },
+    "L04": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D03_D05_O10_L04_private_poison_and_id_bijection"
+        }
+      ],
+      "state": "passed"
+    },
+    "L05": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L05_L08_L09_fixed_plan_and_frozen_reader"
+        }
+      ],
+      "state": "passed"
+    },
+    "L06": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L06_terminal_stop_and_horizon"
+        }
+      ],
+      "state": "passed"
+    },
+    "L07": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L07_delayed_payoff_fitted_value_differs_from_myopic"
+        }
+      ],
+      "state": "passed"
+    },
+    "L08": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L08_fixed_plan_support_adds_branch_without_replacing_eight"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L08_fixed_plan_finishes_before_final_diagnosis_failure"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L05_L08_L09_fixed_plan_and_frozen_reader"
+        }
+      ],
+      "state": "passed"
+    },
+    "L09": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L05_L08_L09_fixed_plan_and_frozen_reader"
+        }
+      ],
+      "state": "passed"
+    },
+    "L10": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D04_D07_L10_L11_permutation_variable_heads[gnn]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D04_D07_L10_L11_permutation_variable_heads[transformer]"
+        }
+      ],
+      "state": "passed"
+    },
+    "L11": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D04_D07_L10_L11_permutation_variable_heads[gnn]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D04_D07_L10_L11_permutation_variable_heads[transformer]"
+        }
+      ],
+      "state": "passed"
+    },
+    "L12": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L12_parameter_counts_within_twenty_percent"
+        }
+      ],
+      "state": "passed"
+    },
+    "L13": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L13_frozen_inference_has_no_target_statistics_updates"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_L13_strict_repeated_inference_settings"
+        }
+      ],
+      "state": "passed"
+    },
+    "L14": {
+      "evidence": [
+        {
+          "path": "/work/Users/leiyo/cgx_data_v2/reports/technical_smoke.json",
+          "scope": "actual topology-excluded scoring with training-configuration assertion for every source transition",
+          "sha256": "5b005765d84e0372e01ba8c9acfa87c8044b9e5bbf7ed3ae3c838bd8476cfca5"
+        }
+      ],
+      "state": "passed"
+    },
+    "O01": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O01_O05_O11_clocks_and_no_hidden_start"
+        }
+      ],
+      "state": "passed"
+    },
+    "O02": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O02_O06_actual_wire_and_only_acquired_records"
+        }
+      ],
+      "state": "passed"
+    },
+    "O03": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O03_O04_calibration_algebra_variance_no_repair"
+        }
+      ],
+      "state": "passed"
+    },
+    "O04": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O03_O04_calibration_algebra_variance_no_repair"
+        }
+      ],
+      "state": "passed"
+    },
+    "O05": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O01_O05_O11_clocks_and_no_hidden_start"
+        }
+      ],
+      "state": "passed"
+    },
+    "O06": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O02_O06_actual_wire_and_only_acquired_records"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O06_wire_decoded_payload_is_exact_returned_float32"
+        }
+      ],
+      "state": "passed"
+    },
+    "O07": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O07_no_free_nonstop_budget_and_no_test_collection"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O07_O08_caps_and_public_reference"
+        }
+      ],
+      "state": "passed"
+    },
+    "O08": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O07_O08_caps_and_public_reference"
+        }
+      ],
+      "state": "passed"
+    },
+    "O09": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O09_E06_zero_budget_common_prior_and_full_reference_label"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O09_initial_same_for_methods"
+        }
+      ],
+      "state": "passed"
+    },
+    "O10": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D03_O10_store_rejects_private_fields"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_D03_D05_O10_L04_private_poison_and_id_bijection"
+        }
+      ],
+      "state": "passed"
+    },
+    "O11": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_O01_O05_O11_clocks_and_no_hidden_start"
+        }
+      ],
+      "state": "passed"
+    },
+    "S01": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S01_S07_S08_healthy_real_routing[chain-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S01_S07_S08_healthy_real_routing[single-12]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S01_S07_S08_healthy_real_routing[double-16]"
+        }
+      ],
+      "state": "passed"
+    },
+    "S02": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[cache_stale-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[queue_hold-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[adapter_scale-0.15]"
+        }
+      ],
+      "state": "passed"
+    },
+    "S03": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[cache_stale-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[queue_hold-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[adapter_scale-0.15]"
+        }
+      ],
+      "state": "passed"
+    },
+    "S04": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[cache_stale-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[queue_hold-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[adapter_scale-0.15]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S04_nominal_representation_and_injected_payload_gain[A]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S04_nominal_representation_and_injected_payload_gain[B]"
+        }
+      ],
+      "state": "passed"
+    },
+    "S05": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[cache_stale-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[queue_hold-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[adapter_scale-0.15]"
+        }
+      ],
+      "state": "passed"
+    },
+    "S06": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[cache_stale-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[queue_hold-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S02_S03_S04_S05_executed_fault_path_and_S06_repair[adapter_scale-0.15]"
+        }
+      ],
+      "state": "passed"
+    },
+    "S07": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S07_S08_typed_graph_channel_coverage[8-chain-2]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S07_S08_typed_graph_channel_coverage[12-single-2]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S07_S08_typed_graph_channel_coverage[14-double-2]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S07_S08_typed_graph_channel_coverage[16-double-3]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S07_S08_typed_graph_channel_coverage[32-double-3]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S01_S07_S08_healthy_real_routing[chain-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S01_S07_S08_healthy_real_routing[single-12]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S01_S07_S08_healthy_real_routing[double-16]"
+        }
+      ],
+      "state": "passed"
+    },
+    "S08": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S07_S08_typed_graph_channel_coverage[8-chain-2]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S07_S08_typed_graph_channel_coverage[12-single-2]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S07_S08_typed_graph_channel_coverage[14-double-2]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S07_S08_typed_graph_channel_coverage[16-double-3]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S07_S08_typed_graph_channel_coverage[32-double-3]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S01_S07_S08_healthy_real_routing[chain-10]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S01_S07_S08_healthy_real_routing[single-12]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S01_S07_S08_healthy_real_routing[double-16]"
+        },
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S08_each_branch_fault_location_changes_executed_commands"
+        }
+      ],
+      "state": "passed"
+    },
+    "S09": {
+      "evidence": [
+        {
+          "junit": "/work/Users/leiyo/cgx_data_v2/reports/pytest.xml",
+          "sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+          "test": "test_S09_recording_does_not_change_physics"
+        }
+      ],
+      "state": "passed"
+    }
+  },
+  "state": "passed",
+  "updated_at": "2026-11-13T22:19:20.134309+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "anchor_selection": "manifest-seeded hash order, first graphs with a nonisomorphic type-order variant",
+  "anchors": [
+    "train-028-9ff106398f2b",
+    "train-069-2b9f318d2473",
+    "train-098-135a30543e51",
+    "train-117-9cf4208713fa",
+    "train-110-ec8f1dfd7d58",
+    "train-066-c851f304ec73",
+    "train-038-9da3453fe435",
+    "train-073-d5c737150664",
+    "train-026-2ef626b68608",
+    "train-076-737ff3e5d4f5",
+    "train-033-1b9d8467e1a2",
+    "train-068-d3b81be91ac1",
+    "train-092-9bf91b54c857",
+    "train-121-1c05c8bb64dd",
+    "train-031-9a330075aa05",
+    "train-057-f80ef97f081e",
+    "train-019-4db9ce3c5a12",
+    "train-005-ba23a8177f0e",
+    "train-083-ef4a1f1dec7d",
+    "train-070-2326e8197a4e"
+  ],
+  "rejections": {
+    "train:duplicate_structure": 1,
+    "train:invalid_motif_size": 23,
+    "validation:duplicate_structure": 1,
+    "validation:invalid_motif_size": 7
+  }
+}

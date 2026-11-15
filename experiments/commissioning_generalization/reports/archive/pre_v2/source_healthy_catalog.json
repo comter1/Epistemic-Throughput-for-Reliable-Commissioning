@@ -1,0 +1,10 @@
+{
+  "elapsed_seconds": 69.21603208799206,
+  "executions": 8192,
+  "failed": 0,
+  "failures": [],
+  "max_hold_error_m": 0.019624665591888715,
+  "scope": "all source healthy task seeds, canonical nominal graph; no test tasks or fault outcomes inspected",
+  "source_hash": "d200156f0a1acb9df6126da8dc2e6155f14e384a638440552f2230a8732f874c",
+  "state": "passed"
+}

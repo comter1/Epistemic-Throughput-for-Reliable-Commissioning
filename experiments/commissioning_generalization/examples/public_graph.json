@@ -1,0 +1,353 @@
+{
+  "schema_version": "cgx.graph.v1",
+  "nodes": [
+    {
+      "id": "n0",
+      "type": "sensor",
+      "ports": [
+        {
+          "name": "out",
+          "direction": "out",
+          "width": 14,
+          "unit": "state_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "clock_domain": "c0",
+      "nominal": {}
+    },
+    {
+      "id": "n1",
+      "type": "cache",
+      "ports": [
+        {
+          "name": "in",
+          "direction": "in",
+          "width": 14,
+          "unit": "state_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "out",
+          "direction": "out",
+          "width": 14,
+          "unit": "state_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "clock_domain": "c0",
+      "nominal": {
+        "state_age_ticks": 0
+      }
+    },
+    {
+      "id": "n2",
+      "type": "adapter",
+      "ports": [
+        {
+          "name": "in",
+          "direction": "in",
+          "width": 14,
+          "unit": "state_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "out",
+          "direction": "out",
+          "width": 14,
+          "unit": "state_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "clock_domain": "c1",
+      "nominal": {
+        "scale": 1.0,
+        "offset": 0.0
+      }
+    },
+    {
+      "id": "n3",
+      "type": "controller",
+      "ports": [
+        {
+          "name": "in",
+          "direction": "in",
+          "width": 14,
+          "unit": "state_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "out",
+          "direction": "out",
+          "width": 7,
+          "unit": "command_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "clock_domain": "c1",
+      "nominal": {}
+    },
+    {
+      "id": "n4",
+      "type": "adapter",
+      "ports": [
+        {
+          "name": "in",
+          "direction": "in",
+          "width": 7,
+          "unit": "command_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "out",
+          "direction": "out",
+          "width": 7,
+          "unit": "command_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "clock_domain": "c2",
+      "nominal": {
+        "scale": 1.0,
+        "offset": 0.0
+      }
+    },
+    {
+      "id": "n5",
+      "type": "queue",
+      "ports": [
+        {
+          "name": "in",
+          "direction": "in",
+          "width": 7,
+          "unit": "command_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "out",
+          "direction": "out",
+          "width": 7,
+          "unit": "command_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "clock_domain": "c2",
+      "nominal": {
+        "queue_delay_ticks": 0
+      }
+    },
+    {
+      "id": "n6",
+      "type": "queue",
+      "ports": [
+        {
+          "name": "in",
+          "direction": "in",
+          "width": 7,
+          "unit": "command_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "out",
+          "direction": "out",
+          "width": 7,
+          "unit": "command_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "clock_domain": "c3",
+      "nominal": {
+        "queue_delay_ticks": 0
+      }
+    },
+    {
+      "id": "n7",
+      "type": "actuator",
+      "ports": [
+        {
+          "name": "in",
+          "direction": "in",
+          "width": 7,
+          "unit": "command_rad",
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "clock_domain": "c3",
+      "nominal": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "n0",
+      "source_port": "out",
+      "target": "n1",
+      "target_port": "in",
+      "relation": "state_flow"
+    },
+    {
+      "source": "n1",
+      "source_port": "out",
+      "target": "n2",
+      "target_port": "in",
+      "relation": "state_flow"
+    },
+    {
+      "source": "n2",
+      "source_port": "out",
+      "target": "n3",
+      "target_port": "in",
+      "relation": "state_flow"
+    },
+    {
+      "source": "n3",
+      "source_port": "out",
+      "target": "n4",
+      "target_port": "in",
+      "relation": "command_flow"
+    },
+    {
+      "source": "n4",
+      "source_port": "out",
+      "target": "n5",
+      "target_port": "in",
+      "relation": "command_flow"
+    },
+    {
+      "source": "n5",
+      "source_port": "out",
+      "target": "n6",
+      "target_port": "in",
+      "relation": "command_flow"
+    },
+    {
+      "source": "n6",
+      "source_port": "out",
+      "target": "n7",
+      "target_port": "in",
+      "relation": "command_flow"
+    }
+  ],
+  "clock_domains": [
+    "c0",
+    "c1",
+    "c2",
+    "c3"
+  ],
+  "sample_rates_hz": [
+    10,
+    50,
+    100
+  ]
+}

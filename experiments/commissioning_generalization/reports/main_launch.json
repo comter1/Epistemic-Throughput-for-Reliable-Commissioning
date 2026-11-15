@@ -1,0 +1,28 @@
+{
+  "command": [
+    "/home/leiyo/work/cgx_env/bin/python",
+    "-m",
+    "cgx.cli",
+    "run-main",
+    "--data-root",
+    "/home/leiyo/work/cgx_data_v2",
+    "--config",
+    "/home/leiyo/work/cgx_data_v2/software/protocol.json",
+    "--gpus",
+    "0,1",
+    "--workers",
+    "32",
+    "--resume"
+  ],
+  "completed": false,
+  "data_workers": 32,
+  "evaluation_workers": 16,
+  "gpu_slots": 3,
+  "launched_at": "2026-11-13T22:22:10.819660+00:00",
+  "log": "/home/leiyo/work/cgx_data_v2/main_run/driver.log",
+  "note": "Detached formal V2 pipeline; downstream phases remain unexecuted until their own checked completion artifacts exist.",
+  "pid": 1119299,
+  "protocol_hash": "ab0d1b0fbdd7febf3ecbdd768f654e70a81298534f6ad3ffc888bb33fa393965",
+  "remote_worker_registry": "/home/leiyo/work/cgx_data_v2/reports/remote_workers.json",
+  "state": "launched"
+}
