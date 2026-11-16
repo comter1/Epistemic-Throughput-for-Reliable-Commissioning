@@ -231,13 +231,16 @@ def evidence_index(run, workers=32):
 def _snapshot_code(run):
     destination = run / 'code'
     destination.mkdir(exist_ok=True)
+    # Always diff against the recorded pre-extension commit, including when a
+    # later delivery amendment was committed after the first artifact snapshot.
+    baseline = read_json(run / 'source_inventory.json')['current_commit']
     patch = []
     for path in sorted(NAMESPACE.glob('*')):
         if path.suffix not in ('.py', '.md') or not path.is_file():
             continue
         shutil.copy2(path, destination / path.name)
         rel = str(path.relative_to(REPOSITORY))
-        base = subprocess.run(['git', 'show', 'HEAD:' + rel], cwd=REPOSITORY,
+        base = subprocess.run(['git', 'show', baseline + ':' + rel], cwd=REPOSITORY,
                               capture_output=True, text=True)
         before = base.stdout.splitlines(keepends=True) if base.returncode == 0 else []
         patch.extend(difflib.unified_diff(before, path.read_text().splitlines(keepends=True),
@@ -254,7 +257,7 @@ def _snapshot_code(run):
     git = dict(commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=REPOSITORY, text=True).strip(),
                branch=subprocess.check_output(['git', 'branch', '--show-current'], cwd=REPOSITORY, text=True).strip(),
                status=subprocess.check_output(['git', 'status', '--short'], cwd=REPOSITORY, text=True),
-               source_snapshot_time=now())
+               implementation_patch_base_commit=baseline, source_snapshot_time=now())
     atomic_json(run / 'provenance/delivery_git_state.json', git)
 
 
@@ -310,6 +313,10 @@ def audit(run_dir, workers=32):
     text = (run / 'FINDINGS_CN.md').read_text()
     if not all(f'## {i}.' in text for i in range(1, 9)):
         raise ValueError('Findings must answer all eight questions')
+    compact = _passed(run / 'provenance/compact_analysis_view.json')
+    if compact['rows'] != 422400 or not compact['exact_full_prediction_vector_equality']:
+        raise ValueError('Compact delivery omitted rows or changed probability vectors')
+    _hashes(run, {compact['compact_path']: compact['compact_sha256']})
     totals = resource_usage(run)
     derived = validation_views(run)
     index = evidence_index(run, workers)
@@ -327,6 +334,7 @@ def audit(run_dir, workers=32):
             'reports/complete.json', 'figures/complete.json', 'selection_manifest.json',
             'evaluation/all_execution_integrity_audit.json',
             'resources/resource_totals.json', 'provenance/external_store_references.json',
+            'provenance/compact_analysis_view.json',
             'validation/derived_candidate_views.json', 'FINDINGS_CN.md')})
     atomic_json(run / 'provenance/final_audit.json', result)
     return result
@@ -343,7 +351,11 @@ def _write_readme(run):
         'earlier abandoned acquisition. Failures, fallbacks and unresolved rereads remain in every denominator. '
         'Deterministic methods have a null seed; Random/learned seeds are averaged within physical case for paired inference. '
         'One-full-execution methods have one actual B=1 row and are shown as verified feasible references at B=2/4.\n\n'
-        'reports/normalized_per_case.parquet retains every probability vector and row provenance. '
+        'reports/normalized_analysis_compact.parquet retains every probability vector, case key, core metric, '
+        'logical cost, action summary, error flag and reader/evidence hash. It is an exact column projection '
+        'of the immutable full normalized table, with 422,400 rows and both result modes. '
+        'The larger reports/normalized_per_case.parquet remains outside the ZIP at the original run path; '
+        'provenance/compact_analysis_view.json records its hash, retained/omitted fields and exact vector-equality checks. '
         'evaluation/ holds original-format new/imported probabilities, acquired-history indexes and action traces. '
         'validation/ contains all predefined candidate rows, selected settings and configuration-balanced selection summaries. '
         'The four figure families include vector PDFs, previews, standalone PGFPlots sources and exact plotted CSV data. '
@@ -361,10 +373,71 @@ def _write_readme(run):
         'The package is required to be strictly below 500,000,000 bytes.\n')
 
 
+def compact_analysis_view(run_dir):
+    """Lossless column projection for delivery, never a scientific-table edit."""
+    import pyarrow.parquet as pq
+    run = Path(run_dir).resolve()
+    source = run / 'reports/normalized_per_case.parquet'
+    report = _passed(run / 'reports/complete.json')
+    expected = report['output_hashes']['reports/normalized_per_case.parquet']
+    if file_sha256(source) != expected:
+        raise ValueError('Cannot compact a changed normalized source')
+    fields = (
+        'suite', 'configuration_id', 'case_id', 'method', 'execution_cap', 'policy_seed',
+        'result_mode', 'origin', 'row_key', 'cell_key', 'underlying_trial_key',
+        'execution_source_key', 'source_logical_cell_key', 'canonical_method',
+        'reused_rollout', 'comparison_identity_alias', 'cap_view_reuse',
+        'is_cap_reference', 'evaluated_execution_cap', 'one_pass_cap_views_verified',
+        'fault_family', 'true_target_key', 'predicted_target_key', 'target_cardinality',
+        'target_keys', 'full_log_probabilities', 'correct', 'is_healthy',
+        'healthy_false_alarm', 'fault_miss', 'joint_fault_correct', 'nll_bits', 'brier',
+        'confidence', 'p_healthy', 'max_fault_probability', 'prior_nll_bits', 'initial_nll_bits',
+        'bytes_used', 'executions_used', 'calibrations_used', 'decisions_used', 'initial_bytes',
+        'selection_seconds', 'inference_seconds', 'end_to_end_seconds', 'completed_read_seconds',
+        'extension_actual_new_robot_attempts', 'extension_actual_cache_hits', 'extension_actual_new_physical_seconds',
+        'distinct_port_coverage', 'distinct_port_coverage_fraction', 'full_trace_used',
+        'full_trace_action_count', 'action_family_counts', 'sample_rate_counts', 'sample_rates', 'chosen_action_keys',
+        'reader_hash', 'checkpoint_hash', 'rule_hash', 'execution_rule_hash', 'protocol_hash',
+        'evidence_trace_hash', 'event_provenance_hash', 'template_id', 'stop_threshold',
+        'timeout', 'abstained', 'errors', 'worker_failure', 'feasible', 'resource_accounting_unavailable',
+        'earlier_termination_affected_acquisition', 'diagnostic_termination_stage',
+        'completion_status', 'completed_read_error', 'actual_history_unchanged',
+        'completion_reused_probability', 'completed_read_calls', 'completion_watchdog_seconds',
+        'online_timeout', 'online_abstained', 'source_run', 'source_per_case_file',
+        'requested_ports', 'observation_refs', 'imported_trace_sha256', 'saved_result_hash',
+    )
+    schema = pq.read_schema(source)
+    columns = [name for name in fields if name in schema.names]
+    table = pq.read_table(source, columns=columns)
+    if table.num_rows != 422400:
+        raise ValueError('Compact delivery must retain every A/B new/imported row')
+    target = run / 'reports/normalized_analysis_compact.parquet'
+    pq.write_table(table, target, compression='zstd', compression_level=9, use_dictionary=True)
+    restored = pq.read_table(target)
+    if not table.equals(restored):
+        raise ValueError('Compact projection changed retained column values or row order')
+    vector_columns = ['row_key', 'result_mode', 'target_keys', 'full_log_probabilities']
+    if not table.select(vector_columns).equals(restored.select(vector_columns)):
+        raise ValueError('Compact projection changed a prediction vector')
+    record = dict(state='passed', created_at=now(), rows=table.num_rows,
+        source_path=str(source), source_sha256=expected, source_bytes=source.stat().st_size,
+        compact_path=str(target), compact_sha256=file_sha256(target), compact_bytes=target.stat().st_size,
+        retained_columns=columns, omitted_columns=[name for name in schema.names if name not in columns],
+        exact_retained_column_equality=True, exact_row_order=True, exact_full_prediction_vector_equality=True,
+        all_original_online_completed_prediction_tables_included=True,
+        source_scientific_table_unchanged=True, no_new_acquisition_inference_or_statistics=True,
+        omitted_field_resolution='Original four A/B tables, action/history indexes and external full normalized source are retained with hashes')
+    atomic_json(run / 'provenance/compact_analysis_view.json', record)
+    return record
+
+
 def package(run_dir, output=None):
     run = Path(run_dir).resolve()
     audit_record = _passed(run / 'provenance/final_audit.json')
     _hashes(run, audit_record['artifacts'])
+    compact = _passed(run / 'provenance/compact_analysis_view.json')
+    _hashes(run, {compact['source_path']: compact['source_sha256'],
+                  compact['compact_path']: compact['compact_sha256']})
     target = Path(output) if output else run.parent / f'Simple_Selector_Controls_{run.name}_GPT_Pro.zip'
     target = target.resolve()
     if target.exists():
@@ -373,15 +446,29 @@ def package(run_dir, output=None):
     selected = []
     import_marker = _passed(run / 'evaluation/import_complete.json')
     redundant_imports = {
-        'imported_action_profile.parquet': 'Per-case fields are joined into normalized_per_case and imported prediction tables; exact source hashes remain in import_complete.json',
+        'imported_action_profile.parquet': 'All 20 per-case fields are retained across normalized_analysis_compact and imported prediction tables; exact source hashes remain in import_complete.json',
         'imported_observation_ports.parquet': 'Intermediate per-observation port extraction; final per-case acquired-port coverage is retained, and raw-file paths/hashes are in imported_evidence_files.jsonl.gz',
     }
     import pyarrow.parquet as pq
     profile_columns = set(pq.read_schema(run / 'evaluation/imported_action_profile.parquet').names)
-    normalized_columns = set(pq.read_schema(run / 'reports/normalized_per_case.parquet').names)
-    if not profile_columns.issubset(normalized_columns):
-        raise ValueError(f'Cannot omit action profile: unique fields absent from normalized results: {profile_columns-normalized_columns}')
-    for path in sorted(run.rglob('*')):
+    included_columns = set(pq.read_schema(run / 'reports/normalized_analysis_compact.parquet').names)
+    for name in ('imported_learned_rows.parquet', 'imported_completed_read.parquet'):
+        included_columns.update(pq.read_schema(run / 'evaluation' / name).names)
+    if not profile_columns.issubset(included_columns):
+        raise ValueError(f'Cannot omit action profile: unique fields absent from included tables: {profile_columns-included_columns}')
+    # Do not recursively enumerate large omitted raw stores merely to exclude
+    # every file. Exact contents of those stores are already in evidence indexes.
+    candidates = []
+    archive_trees = {'code', 'reference_source', 'reports', 'figures', 'tests', 'provenance',
+                     'commands', 'resources', 'dispatch'}
+    for root_path in run.iterdir():
+        if root_path.is_file():
+            candidates.append(root_path)
+        elif root_path.name in archive_trees:
+            candidates.extend(root_path.rglob('*'))
+        elif root_path.name in ('evaluation', 'validation', 'logs'):
+            candidates.extend(root_path.iterdir())
+    for path in sorted(candidates):
         if not path.is_file():
             continue
         rel = path.relative_to(run)
@@ -406,18 +493,22 @@ def package(run_dir, output=None):
             include = False
         if len(parts) > 1 and parts[:2] == ('reports', 'primary') and path.name == 'normalized_per_case.parquet':
             include = False
+        if str(rel) == 'reports/normalized_per_case.parquet':
+            include = False
         if path.name in ('DELIVERY_FILE_INDEX.json', 'DELIVERY_OMISSIONS.json') or path == target:
             include = False
         if include:
             selected.append(path)
         elif parts[0] not in ('public', 'cache', 'rollouts') and not ('cases' in parts):
             excluded.append(dict(path=str(path), relative_path=str(rel), bytes=path.stat().st_size,
-                sha256=import_marker['output_hashes'].get(path.name) if path.name in redundant_imports else None,
-                reason=redundant_imports.get(path.name, 'Duplicate/intermediate table, bulky qualification envelope or transient runtime file; retained in original run')))
+                sha256=compact['source_sha256'] if str(rel) == 'reports/normalized_per_case.parquet' else
+                    import_marker['output_hashes'].get(path.name) if path.name in redundant_imports else None,
+                reason='Full immutable normalized source; exact 422400-row probability-preserving compact projection is included' if str(rel) == 'reports/normalized_per_case.parquet' else
+                    redundant_imports.get(path.name, 'Duplicate/intermediate table, bulky qualification envelope or transient runtime file; retained in original run')))
     required = ['evaluation/per_case_online.parquet', 'evaluation/per_case_completed_read.parquet',
         'evaluation/imported_learned_rows.parquet', 'evaluation/imported_completed_read.parquet',
         'evaluation/acquired_history_index.parquet', 'evaluation/action_traces.jsonl.gz',
-        'reports/normalized_per_case.parquet', 'validation/selected_settings.json',
+        'reports/normalized_analysis_compact.parquet', 'provenance/compact_analysis_view.json', 'validation/selected_settings.json',
         'validation/fixed_templates_per_case.parquet', 'validation/heuristic_stop_options_per_case.parquet',
         'FINDINGS_CN.md', 'RESOURCE_USAGE.md', 'README.md', 'provenance/final_audit.json',
         'provenance/new_evidence_files.jsonl.gz', 'provenance/imported_evidence_files.jsonl.gz']
@@ -464,11 +555,13 @@ def package(run_dir, output=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=('audit', 'package', 'all'))
+    parser.add_argument('command', choices=('audit', 'compact-view', 'package', 'all'))
     parser.add_argument('--run-dir', required=True)
     parser.add_argument('--workers', type=int, default=32)
     parser.add_argument('--output')
     args = parser.parse_args()
+    if args.command in ('compact-view', 'all'):
+        print(json.dumps(compact_analysis_view(args.run_dir)), flush=True)
     if args.command in ('audit', 'all'):
         print(json.dumps(audit(args.run_dir, args.workers)), flush=True)
     if args.command in ('package', 'all'):

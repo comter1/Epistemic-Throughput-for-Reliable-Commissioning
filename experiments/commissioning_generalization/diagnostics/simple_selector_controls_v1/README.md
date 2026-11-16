@@ -108,6 +108,17 @@ Finalization checks protected inputs, runtime seals, matrix sizes, tests, report
 hashes and evidence resolution, and creates one ZIP strictly below 500,000,000
 bytes. It includes every new/imported online/completed probability vector,
 validation choices, source/diff, tables, figures, commands and integrity indexes.
+The delivery uses `reports/normalized_analysis_compact.parquet`: an exact column
+projection retaining all 422,400 rows, full target/probability vectors, metrics,
+keys, logical costs, errors, action summaries and reader/evidence hashes. The four
+original-format prediction tables remain included. The larger immutable full
+normalized table stays outside the ZIP; its source hash, omitted columns and
+row-for-row vector equality are documented in `provenance/compact_analysis_view.json`.
+`finalize all` derives this view before auditing and packaging; separate stages
+can use `finalize compact-view`, `finalize audit` and `finalize package`. No source
+report or scientific table is overwritten by compaction. The implementation patch
+always uses the pre-extension commit in `source_inventory.json` as its base,
+including after packaging-only code amendments have been committed.
 Large raw measurements, simulator caches, individual cell envelopes and checkpoints
 stay in the existing storage with exact paths/content/file hashes. The archive is
 sufficient for analyzing predictions; full replay still requires those stores.
