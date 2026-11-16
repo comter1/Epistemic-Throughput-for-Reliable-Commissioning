@@ -1,0 +1,434 @@
+Please revise the current commissioning-generalization main experiment.
+
+IMPORTANT:
+This is NOT a pilot or exploratory experiment. It is still the main experiment for the paper.
+The previous experiment plan is unnecessarily large. We only need a clean, statistically meaningful experiment that directly tests the core claim:
+
+"A policy trained to decide what evidence to acquire on some system configurations can generalize, without retraining, to unseen system topologies."
+
+Do NOT change this scientific question.
+
+============================================================
+1. BRANCH AND DIRECTORY
+============================================================
+
+Continue on the existing branch:
+
+    feat/commissioning-generalization-main
+
+Do NOT create another branch if this branch already exists.
+
+Continue using:
+
+    experiments/commissioning_generalization/
+
+Do not modify or delete the existing finite benchmark, result_review, or previous Xiaosa experiments.
+
+Reuse any code already implemented for the larger experiment if it is still useful.
+Do not restart implementation from scratch.
+
+============================================================
+2. REDUCE THE EXPERIMENT SCALE
+============================================================
+
+Replace the previous large-scale split with the following formal main-experiment split:
+
+TRAIN:
+    32 unique system topologies
+    128 cases per topology
+    = 4096 base training cases
+
+VALIDATION:
+    8 unique system topologies
+    64 cases per topology
+    = 512 validation cases
+
+SEEN-TOPOLOGY TEST:
+    8 topologies drawn from the training topology family
+    but with completely new cases/seeds
+    100 cases per topology
+    = 800 cases
+
+UNSEEN-TOPOLOGY TEST [PRIMARY TEST]:
+    16 completely held-out topologies
+    100 cases per topology
+    = 1600 cases
+
+LARGER UNSEEN-TOPOLOGY TEST:
+    8 completely held-out larger topologies
+    100 cases per topology
+    = 800 cases
+
+The primary scientific result is the UNSEEN-TOPOLOGY TEST.
+
+Do not make clock-domain shift, implementation shift, parameter shift, etc. separate full main test suites in v2.
+
+They may remain optional appendix experiments and should NOT block the main experiment.
+
+============================================================
+3. WHAT COUNTS AS AN UNSEEN TOPOLOGY
+============================================================
+
+A new random seed or node renumbering is NOT a new topology.
+
+Training and held-out topology sets must differ structurally.
+
+Examples include:
+
+- different number and placement of queues;
+- different placement/order of adapters;
+- different branching and merging patterns;
+- different legal component connections.
+
+For the PRIMARY unseen-topology test:
+
+keep component types, fault types, severity ranges, observation noise ranges, and task distribution comparable to training.
+
+Change topology itself.
+
+This is important because we want to isolate topology generalization.
+
+The larger-topology test should additionally change graph size:
+
+TRAIN:
+    mainly 8-16 observable components
+
+LARGER TEST:
+    approximately 16-24 components
+
+Do not mix all distribution shifts into the primary unseen-topology test.
+
+============================================================
+4. MAIN FAULT TARGET
+============================================================
+
+The target must identify both fault type and fault location.
+
+For example, if there are two queues:
+
+    queue_1_delay
+
+and
+
+    queue_2_delay
+
+must be different targets.
+
+Initial fault families:
+
+    healthy
+    stale state / stale cache
+    queued command / queue delay
+    transform / scale mismatch
+
+Keep one injected fault per main case for this version.
+
+Do not expand to arbitrary multiple simultaneous faults yet.
+
+============================================================
+5. ACQUISITION HORIZON AND BUDGETS
+============================================================
+
+Main acquisition horizon:
+
+    maximum 4 additional diagnostic executions
+
+Main budget conditions:
+
+    B in {1, 2, 4}
+
+plus:
+
+    Full recording
+
+Do NOT sweep every possible budget.
+
+Sensitivity experiment:
+
+    max rounds in {1, 2, 8}
+
+This is secondary.
+
+Keep execution count, recorded bytes, calibration count, and policy-selection compute time as separate reported quantities.
+
+Do not collapse them into an arbitrary scalar cost unless explicitly used by a baseline.
+
+============================================================
+6. METHODS TO KEEP
+============================================================
+
+The main paper comparison should contain only the following core methods:
+
+1. Fixed planned acquisition
+   - chooses a complete acquisition plan using initial information;
+   - cannot change later actions based on newly observed evidence.
+
+2. Cost-aware myopic acquisition
+   - strong one-step baseline;
+   - explicitly considers information/diagnostic value and cost.
+
+3. Short-horizon planner
+   - approximately 1-2 step lookahead;
+   - serves as a strong planning baseline.
+
+4. Non-graph learned acquisition policy
+   - comparable model size and training budget;
+   - receives the same public system description and evidence;
+   - do NOT intentionally remove topology information just to weaken it.
+
+5. GNN learned acquisition policy
+   - our main learned method.
+
+6. Full recording
+   - reference for maximum observation access and actual acquisition cost.
+
+Remove redundant baseline variants from the mandatory main run.
+
+Additional ablations can be run later if useful.
+
+============================================================
+7. TRAINING SEEDS
+============================================================
+
+Use:
+
+    3 independent training seeds
+
+NOT 5.
+
+Topology diversity is more important than repeatedly training the same model many times.
+
+Use the same three seeds for the GNN and non-graph learned policy.
+
+============================================================
+8. TRAINING DATA SIZE
+============================================================
+
+Do NOT require millions of full MuJoCo executions.
+
+Use training cases to generate multiple valid acquisition-history branches where possible.
+
+Target approximately:
+
+    50,000 - 200,000 useful acquisition transitions initially
+
+Increase only if training curves show that more data are actually required.
+
+Do not pre-generate 1-2 million transitions simply because the previous plan requested them.
+
+The test evaluation must still execute the actual acquisition protocol.
+
+Training may use valid replay / branching from training cases.
+
+No held-out topology data may enter policy or predictor training.
+
+============================================================
+9. MODEL TRAINING BUDGET
+============================================================
+
+For each learned model:
+
+    maximum 100,000 parameter-update steps
+
+Validation every:
+
+    2,000 updates
+
+Early stopping:
+
+    stop if there is no meaningful validation improvement for 10 consecutive validation checks
+
+Store the best validation checkpoint.
+
+Do not force every model to run all 100k updates.
+
+The GNN is expected to remain a small model.
+Do not increase model size simply because two B200 GPUs are available.
+
+============================================================
+10. USE OF THE TWO B200 GPUs
+============================================================
+
+There are currently two B200 GPUs available.
+
+Use one GPU per independent training job.
+
+Do NOT use distributed training across both B200s for one small GNN unless profiling clearly shows a need.
+
+Parallelize:
+
+    model × seed
+
+across the two GPUs.
+
+GPU availability should be used to finish independent runs faster, not to make the model unnecessarily large.
+
+============================================================
+11. PRIMARY RESULT
+============================================================
+
+The main comparison must directly show:
+
+    Seen topology
+        vs.
+    Unseen topology
+
+for the frozen learned policies.
+
+At test time freeze:
+
+    diagnostic predictor parameters
+    acquisition-policy parameters
+    normalization parameters
+    model-selection choices
+    stopping thresholds
+
+The new topology may provide:
+
+    public graph structure
+    public component/interface types
+    legal observation actions
+    declared observation costs
+    evidence actually acquired so far
+
+It must NOT provide:
+
+    fault location
+    fault-injection parameters
+    hidden simulator state
+    test-case labels
+    a newly fitted complete probability model
+    test-topology training examples
+
+No gradient updates or fine-tuning on the unseen topology.
+
+============================================================
+12. MAIN METRICS
+============================================================
+
+Report at least:
+
+Diagnostic performance:
+    final log loss
+    fault type + location accuracy
+    abstention / unresolved rate if used
+
+Acquisition resources:
+    diagnostic executions
+    recorded bytes
+    calibration operations
+    policy-selection runtime
+    total wall-clock acquisition time where meaningful
+
+Generalization:
+    performance drop from seen topology to unseen topology
+
+Engineering validation:
+    for selected main conditions, apply the predicted repair and run an independent post-repair audit
+
+Do not call learned-predictor improvement "exact mutual information".
+
+Exact Bayes-optimal information gain remains a property of the finite benchmark where the true probability model is enumerable.
+
+============================================================
+13. MAIN FIGURES
+============================================================
+
+Prioritize these figures:
+
+Figure 1:
+    budget-performance curves on seen vs unseen topology
+
+Figure 2:
+    resource required to reach a matched diagnostic quality
+    across methods on unseen topologies
+
+Figure 3:
+    seen-to-unseen generalization gap for all core methods
+
+Figure 4:
+    repair/audit outcome versus total acquisition cost
+    for representative main conditions
+
+Do not generate dozens of secondary figures before these are complete.
+
+============================================================
+14. UPDATE THE EXISTING PLAN AND CONFIGS
+============================================================
+
+Update the existing files in:
+
+    experiments/commissioning_generalization/
+
+including the implementation plan, Codex task document, configuration files, job manifests, and workload estimates.
+
+Clearly mark the old large experiment specification as superseded by:
+
+    MAIN EXPERIMENT V2
+
+Do not leave conflicting old configuration values active.
+
+If old documents are useful for provenance, keep them as archived files, but the executable defaults must correspond to V2.
+
+============================================================
+15. RUNTIME TARGET
+============================================================
+
+The previous projected 4-10 week workload is unacceptable and indicates over-scaling.
+
+After updating V2:
+
+measure actual throughput from the current implementation and report:
+
+    MuJoCo cases / second
+    acquisition transitions / second
+    training updates / second
+    evaluation cases / second
+
+Then estimate the complete V2 runtime.
+
+The intended order of magnitude for the finished experiment, once implementation is working, is approximately:
+
+    data generation + evaluation: order of 1-3 days
+    learned-model GPU work: order of tens of B200 GPU-hours
+
+These are planning targets, not constraints that justify skipping required cases.
+
+If the estimate is still multiple weeks, inspect for avoidable repeated simulation, serial evaluation, redundant checkpoints, or repeated generation of identical data before scaling down the scientific test further.
+
+============================================================
+16. DO NOT TURN THIS INTO ANOTHER PILOT
+============================================================
+
+Do NOT respond by creating a smaller toy benchmark.
+
+Do NOT replace MuJoCo with the old finite delay benchmark.
+
+Do NOT stop after showing that the pipeline can run.
+
+Implement and execute the formal frozen-policy unseen-topology main experiment described above.
+
+Engineering smoke tests are naturally allowed before launching large jobs, but they are implementation checks, not a separate scientific experiment.
+
+============================================================
+17. FIRST ACTION NOW
+============================================================
+
+Before launching any new large job:
+
+1. inspect what has already been implemented on the current branch;
+2. preserve reusable implementation;
+3. update the experiment specification and executable configs to V2;
+4. cancel/avoid old oversized jobs that have not yet completed and are no longer needed;
+5. preserve already generated valid data if it is compatible with V2 and does not violate the new split;
+6. regenerate data only when the old data are incompatible with the new split/protocol;
+7. print a concise table containing:
+       old workload
+       new V2 workload
+       reused data
+       data that must be regenerated
+       expected runtime on the current machine;
+8. then continue implementation/execution of V2.
+
+Do not claim an experiment is complete until it has actually run.
+Do not fabricate measurements or results.

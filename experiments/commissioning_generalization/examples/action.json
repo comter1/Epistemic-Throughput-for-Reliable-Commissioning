@@ -1,0 +1,19 @@
+{
+  "action_key": "link_n5out_n6in_50_cal_c2c3",
+  "kind": "pair_plus_calibration",
+  "ports": [
+    "n5:out",
+    "n6:in"
+  ],
+  "sample_hz": 50,
+  "calibration_pair": [
+    "c2",
+    "c3"
+  ],
+  "cost_bound": {
+    "executions": 1,
+    "bytes": 140960,
+    "calibrations": 1,
+    "decisions": 1
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "capacity_decision": "Proceed with unchanged scientific counts; sufficient disk/RAM and2B200; retain all observations and report actual progress",
+  "created_at": "2026-11-13T20:48:47.798528+00:00",
+  "disk_free_bytes": 2394654275866624,
+  "excluded_from_optimizer_estimate": [
+    "source and validation collection",
+    "feature preparation and cache I/O",
+    "OOF scoring",
+    "full acquisition validation",
+    "online CPU encoding and inference",
+    "test acquisition",
+    "horizon sensitivity",
+    "threshold selection",
+    "independent reader",
+    "repair/audit"
+  ],
+  "expected_source_physical_executions_before_budget_stops": 1055129.6,
+  "full_policy_validation_case_count": 3072000,
+  "inputs": {
+    "/home/leiyo/work/cgx_data/reports/execution_profile.json": "a2b881c63ea5a27bfaa32dda468f0284aa7130ad0966635773b1c91316449041",
+    "/home/leiyo/work/cgx_data/technical_smoke/pipeline/reports/learning_profile.json": "16d707fded90875d53748b2ccd6a322b41352714bc7df931cf70d8beca80b529"
+  },
+  "interpretation": "Optimizer kernel estimate is not total allocation time. Serial per-case validation/evaluation can dominate and exceed320 allocated GPU-hours; queue reports without hidden pruning. Runtime progress supersedes these bounds.",
+  "main_evaluation_case_count": 2176000,
+  "main_evaluation_physics_serial_hours_upper_estimate": 460.49335251804183,
+  "main_physical_execution_upper_bound": 10880000,
+  "measured_executions": 1000,
+  "measured_physics": {
+    "mean_gzip_json_bytes": 160864.14,
+    "mean_gzip_wire_bytes": 81994.122,
+    "mean_seconds": 0.15236912399494032,
+    "mean_storage_seconds": 0.015370726777109666,
+    "mean_wire_bytes": 430283.488,
+    "p50_seconds": 0.1421216074959375,
+    "p95_seconds": 0.23363633500121067,
+    "total_wire_bytes": 430283488
+  },
+  "measured_training": {
+    "policy_gnn": {
+      "actual_updates": 250,
+      "batch_size": 128,
+      "mode": "policy_gnn",
+      "p50_seconds": 0.03597047500079498,
+      "p95_seconds": 0.03626439415238565,
+      "parameters": 397250,
+      "peak_gpu_memory_bytes": 1760509952,
+      "total_seconds": 9.00184416898992,
+      "warmup_updates": 5
+    },
+    "policy_transformer": {
+      "actual_updates": 250,
+      "batch_size": 128,
+      "mode": "policy_transformer",
+      "p50_seconds": 0.07444745149405207,
+      "p95_seconds": 0.07520241819875081,
+      "parameters": 433586,
+      "peak_gpu_memory_bytes": 1747475456,
+      "total_seconds": 18.63714605005225,
+      "warmup_updates": 5
+    },
+    "reader_gnn": {
+      "actual_updates": 250,
+      "batch_size": 128,
+      "mode": "reader_gnn",
+      "p50_seconds": 0.023925134497403633,
+      "p95_seconds": 0.024594517552759498,
+      "parameters": 360450,
+      "peak_gpu_memory_bytes": 1072603136,
+      "total_seconds": 6.010464670922374,
+      "warmup_updates": 5
+    },
+    "reader_transformer": {
+      "actual_updates": 250,
+      "batch_size": 128,
+      "mode": "reader_transformer",
+      "p50_seconds": 0.05288598950573942,
+      "p95_seconds": 0.053368805750505996,
+      "parameters": 1460594,
+      "peak_gpu_memory_bytes": 1094616576,
+      "total_seconds": 13.222358321887441,
+      "warmup_updates": 5
+    }
+  },
+  "measured_updates": 1000,
+  "optimizer_only_gpu_hours_p50": 64.77444562410204,
+  "optimizer_only_ideal_two_gpu_wall_hours": 32.38722281205102,
+  "planned_policy_updates": 5000000,
+  "planned_reader_updates": 500000,
+  "planning_estimate_only": true,
+  "policy_validation_physics_serial_hours_upper_estimate": 650.108262378412,
+  "source_cases": 32768,
+  "source_compressed_observation_bytes_estimate": 169732515692.54404,
+  "source_hard_execution_cap": 2000000,
+  "source_physics_cpu_hours_estimate": 44.65810357031439,
+  "source_physics_ideal_worker_wall_hours": 2.7911314731446493,
+  "state": "passed",
+  "test_cases": 12800,
+  "validation_cases": 3072,
+  "workers": 16
+}

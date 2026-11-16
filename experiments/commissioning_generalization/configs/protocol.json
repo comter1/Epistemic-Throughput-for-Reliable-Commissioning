@@ -1,0 +1,444 @@
+{
+  "protocol_id": "CGX-2.0",
+  "date": "2026-11-13",
+  "status": "registered_before_training",
+  "experiment_directory": "experiments/commissioning_generalization",
+  "branch": "feat/commissioning-generalization-main",
+  "claims": {
+    "primary": "Frozen acquisition policy on unseen connections at matched resource caps",
+    "not_claimed": [
+      "general transfer between unrelated machine domains",
+      "exact ET in MuJoCo",
+      "a new GNN or RL algorithm",
+      "guaranteed advantage of GNN or adaptivity"
+    ]
+  },
+  "seeds": {
+    "manifest": 671913,
+    "case_generation": 671914,
+    "behavior_collection": 671915,
+    "crossfit_assignment": 671916,
+    "training": [
+      11,
+      23,
+      37
+    ],
+    "bootstrap": 671917,
+    "healthy_qualification": 671918
+  },
+  "splits": {
+    "train": {
+      "configurations": 32,
+      "cases_per_configuration": 128,
+      "component_count": [
+        8,
+        16
+      ]
+    },
+    "validation": {
+      "configurations": 8,
+      "cases_per_configuration": 64,
+      "component_count": [
+        8,
+        16
+      ]
+    },
+    "test_seen": {
+      "configurations": 8,
+      "cases_per_configuration": 100,
+      "component_count": [
+        8,
+        16
+      ],
+      "base_graphs_from_train": true
+    },
+    "test_connections": {
+      "configurations": 16,
+      "cases_per_configuration": 100,
+      "component_count": [
+        8,
+        16
+      ],
+      "structural_holdout": true,
+      "matched_to": "train"
+    },
+    "test_size": {
+      "configurations": 8,
+      "cases_per_configuration": 100,
+      "component_count": [
+        16,
+        24
+      ],
+      "structural_holdout": true
+    }
+  },
+  "targets": {
+    "families": [
+      "healthy",
+      "cache_stale",
+      "queue_hold",
+      "adapter_scale"
+    ],
+    "family_probabilities": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "faults_per_case_max": 1,
+    "location_distribution": "balanced_uniform_within_applicable_type",
+    "output": "healthy_or_component_mechanism",
+    "healthy_counts_per_train_config": 32,
+    "family_balance_rule": "one quarter per family within every topology and split"
+  },
+  "system": {
+    "engine": "MuJoCo CPU native bindings",
+    "asset": "google-deepmind/mujoco_menagerie/franka_emika_panda",
+    "rendering": false,
+    "image_inputs": false,
+    "physics_dt_seconds": 0.002,
+    "control_hz": 100,
+    "execution_seconds": 10.0,
+    "waypoints": 3,
+    "position_tolerance_m": 0.02,
+    "hold_seconds": 0.5,
+    "joint_limit_tolerance_rad": 0.001,
+    "controller": "fixed_state_feedback_position_servo",
+    "servo_alpha": 0.2,
+    "servo_velocity_damping_seconds": 0.02,
+    "controller_training": false,
+    "graph_types": [
+      "sensor",
+      "cache",
+      "adapter",
+      "controller",
+      "queue",
+      "actuator",
+      "splitter",
+      "merger"
+    ],
+    "clock_domains_source": [
+      2,
+      5
+    ],
+    "clock_domains_size": [
+      3,
+      8
+    ]
+  },
+  "faults": {
+    "cache_stale_delay_ticks": [
+      2,
+      5,
+      10
+    ],
+    "queue_hold_delay_ticks": [
+      2,
+      5,
+      10
+    ],
+    "adapter_scale_magnitudes": [
+      0.05,
+      0.1,
+      0.15
+    ],
+    "adapter_scale_signs": [
+      -1,
+      1
+    ],
+    "injector_metadata_public": false,
+    "nominal_parameters_public": true
+  },
+  "sensing": {
+    "joint_position_std_rad": 0.0001,
+    "joint_velocity_std_rad_s": 0.001,
+    "observer_offset_uniform_ms": [
+      -20.0,
+      20.0
+    ],
+    "timestamp_independent_std_ms": 1.0,
+    "cross_round_clock_offset": "persistent_within_case",
+    "calibration": "four_timestamp_two_way_exchange",
+    "calibration_burst_exchanges": 4,
+    "calibration_link_one_way_mean_ms": 2.0,
+    "calibration_link_one_way_std_ms": 0.5,
+    "calibration_processing_delay_ms": 0.1,
+    "physical_clock_adjustment": false,
+    "perfect_shared_noise_in_main": false,
+    "recorder_arm_delay_uniform_ms": [
+      0.0,
+      100.0
+    ],
+    "recorder_phase_uniform_one_sample_period": true,
+    "recorder_arm_delay_public": false
+  },
+  "observations": {
+    "sample_hz": [
+      10,
+      50,
+      100
+    ],
+    "default_external_hz": 10,
+    "trace_record_bytes": 128,
+    "calibration_burst_bytes": 160,
+    "action_families": [
+      "single_port",
+      "module_pair",
+      "link_pair",
+      "pair_plus_calibration",
+      "calibration_only",
+      "full_trace",
+      "stop"
+    ],
+    "calibrations_per_action_max": 1,
+    "max_probe_ports_local_bundle": 4,
+    "message_id": "opaque equality-only token mapped to pair-match flags",
+    "max_raw_records_per_port_per_run": 1000,
+    "encoder_token_cap_per_port_per_run": 256,
+    "token_summary_width": 64,
+    "raw_log_cost_before_encoding": true
+  },
+  "resources": {
+    "main_execution_cap": 4,
+    "main_calibration_cap": 2,
+    "main_decision_cap": 6,
+    "byte_fractions": [
+      1.0
+    ],
+    "reference_executions_for_byte_cap": 4,
+    "round_sensitivity_execution_caps": [
+      1,
+      2,
+      8
+    ],
+    "round_sensitivity_calibration_cap": 2,
+    "round_sensitivity_decision_cap_rule": "execution_cap_plus_calibration_cap",
+    "round_sensitivity_fixed_byte_denominator": true,
+    "selection_timeout_seconds_per_decision": 2.0,
+    "diagnosis_timeout_seconds_per_call": 2.0,
+    "strict_caps": true,
+    "initial_run_common_and_reported_separately": true,
+    "verification_executions_reserved": 2,
+    "audit_executions": 20,
+    "main_execution_budgets": [
+      1,
+      2,
+      4
+    ],
+    "budget_axis": "additional_diagnostic_executions",
+    "full_recording_execution_cap": 4,
+    "byte_budget_policy": "fixed safety ceiling of four full-rate recordings; actual bytes reported separately"
+  },
+  "training": {
+    "crossfit_folds": 3,
+    "crossfit_unit": "topology",
+    "source_trajectories_per_case": 8,
+    "fixed_plan_support_byte_fraction": 0.25,
+    "main_byte_fractions_for_collection": [
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "replicates_per_byte_fraction": 2,
+    "collection_execution_caps": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "collection_execution_cap_probabilities": [
+      0.1,
+      0.1,
+      0.7,
+      0.1
+    ],
+    "collection_policy_mix": {
+      "random_legal": 0.4,
+      "structure_rule": 0.3,
+      "fixed_diverse_plan": 0.3
+    },
+    "transitions_target_range": [
+      50000,
+      200000
+    ],
+    "max_training_executions": 200000,
+    "predictor_update_cap": 100000,
+    "policy_update_cap": 100000,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "batch_size": 128,
+    "gradient_accumulation": 1,
+    "grad_clip_norm": 1.0,
+    "gamma": 1.0,
+    "target_update_interval": 1000,
+    "checkpoint_interval": 2000,
+    "validation_interval": 2000,
+    "reward_log_base": 2,
+    "reward_floor_probability": 1e-08,
+    "reward_clip": null,
+    "bellman_loss": "Huber",
+    "target": "double_q_undiscounted_finite_horizon",
+    "online_test_learning": false,
+    "source_test_model_oracle": false,
+    "precision": "bfloat16_autocast_fp32_scores_and_loss",
+    "action_sampling_coverage_min_per_type": 1000,
+    "diagnosis_family_loss": "joint_component_mechanism_cross_entropy",
+    "early_stopping": {
+      "patience_checks": 10,
+      "min_delta_nll_bits": 0.005,
+      "selection": "best validation loss, then lower actual bytes, then earlier checkpoint"
+    }
+  },
+  "models": {
+    "event_embedding_width": 32,
+    "temporal_gru_hidden": 64,
+    "hidden_width": 128,
+    "message_passing_layers": 3,
+    "edge_embedding_width": 32,
+    "action_head_hidden": [
+      128,
+      64
+    ],
+    "transformer_layers": 3,
+    "transformer_heads": 4,
+    "transformer_sees_relations": true,
+    "sum_or_mean_pool": "mean_plus_log_count",
+    "variable_node_and_action_heads": true,
+    "diagnostic_primary": "graph_predictor_shared_across_all_policies",
+    "diagnostic_independent_reader": "relation_transformer_width_256",
+    "node_id_embeddings": false,
+    "raw_clock_id_embeddings": false,
+    "numeric_message_id_features": false
+  },
+  "methods": {
+    "learned": [
+      "gnn_adaptive",
+      "transformer_adaptive",
+      "gnn_fixed_plan",
+      "gnn_myopic",
+      "gnn_depth2"
+    ],
+    "nonlearned": [
+      "full_recording_feasible"
+    ],
+    "cost_aware_adaptation": {
+      "base_model": "gnn_myopic",
+      "beta_grid": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "weights_chosen_on_validation": true,
+      "claim": "adaptation_of_2024_rule_not_verbatim_reproduction"
+    },
+    "old_finite_exact": "regression_only",
+    "same_public_information": true,
+    "same_action_catalog": true,
+    "main_learned_evaluation": [
+      "gnn_fixed_plan",
+      "cost_aware_adaptation",
+      "gnn_depth2",
+      "transformer_adaptive",
+      "gnn_adaptive"
+    ],
+    "training_to_evaluation": {
+      "gnn_myopic": "cost_aware_adaptation"
+    }
+  },
+  "evaluation": {
+    "main_execution_cap": 4,
+    "test_seeds_paired_across_methods": true,
+    "replicates_per_case": 1,
+    "primary_metric": "mean_final_log_loss_bits",
+    "primary_suite": "test_connections",
+    "primary_byte_fraction": 1.0,
+    "primary_comparator": "transformer_adaptive",
+    "primary_secondary_comparator": "cost_aware_adaptation",
+    "required_other_comparisons": [
+      "gnn_fixed_plan",
+      "gnn_depth2"
+    ],
+    "report_all_budgets": true,
+    "bootstrap_repetitions": 2000,
+    "bootstrap_unit": "configuration_then_case",
+    "seed_variation_reported_separately": true,
+    "multiplicity": "primary_single_contrast_secondary_Holm",
+    "location_metric": "joint_mechanism_and_location_accuracy",
+    "logscore_improvement_not_exact_MI": true,
+    "nan_or_timeout_not_dropped": true,
+    "repair_byte_fraction": 1.0,
+    "repair_methods": [
+      "gnn_fixed_plan",
+      "cost_aware_adaptation",
+      "gnn_depth2",
+      "transformer_adaptive",
+      "gnn_adaptive",
+      "full_recording_feasible"
+    ],
+    "repair_training_seeds": [
+      11,
+      23,
+      37
+    ],
+    "repair_configurations_per_test_suite": 4,
+    "repair_cases_per_configuration": 32,
+    "repair_threshold_grid": [
+      0.5,
+      0.7,
+      0.8,
+      0.9,
+      0.95,
+      0.99
+    ],
+    "repair_risk_target_validation": 0.05,
+    "hidden_audit_all_pass_outcome_not_risk_certificate": true,
+    "primary_execution_cap": 4,
+    "repair_execution_cap": 4,
+    "optional_appendix_suites": [
+      "test_clocks",
+      "test_implementation",
+      "round_sensitivity"
+    ],
+    "main_figures": [
+      "budget_performance_seen_unseen",
+      "resources_to_matched_quality",
+      "seen_unseen_gap",
+      "repair_audit_vs_total_cost"
+    ]
+  },
+  "compute": {
+    "gpus": 3,
+    "expected_gpu_family": "NVIDIA B200",
+    "default_distributed": false,
+    "jobs_per_gpu": 1,
+    "cpu_workers_default": 16,
+    "cpu_worker_rule": "min(16,max(1,allocated_cpu_count//2))",
+    "blas_threads_per_worker": 1,
+    "host_memory_gb_recommended": 128,
+    "disk_free_gb_recommended": 1000,
+    "gpu_hours_initial_soft_cap": 320,
+    "data_root_env": "CGX_DATA_ROOT",
+    "allow_auto_driver_update": false,
+    "allow_paid_apis": false
+  },
+  "reproducibility": {
+    "true_timestamps_never_in_public_stream": true,
+    "random_node_relabeling": true,
+    "rng_streams_separate": true,
+    "deterministic_eval": true,
+    "test_manifest_sealed_before_training": true,
+    "asset_git_sha_required": true,
+    "dependency_lock_required": true,
+    "all_per_case_records_required": true,
+    "exact_bn_for_test_not_provided": true
+  },
+  "title": "MAIN EXPERIMENT V2",
+  "supersedes": [
+    "CGX-1.0",
+    "CGX-1.0-P48-1"
+  ]
+}

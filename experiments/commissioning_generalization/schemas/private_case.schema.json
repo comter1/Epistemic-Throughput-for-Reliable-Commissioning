@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "split",
+    "configuration_id",
+    "fault_family",
+    "fault_node",
+    "severity",
+    "observer_offsets_ms",
+    "streams",
+    "example_only"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "train",
+        "validation",
+        "test_seen",
+        "test_connections",
+        "test_clocks",
+        "test_size",
+        "test_implementation"
+      ]
+    },
+    "configuration_id": {
+      "type": "string"
+    },
+    "fault_family": {
+      "enum": [
+        "healthy",
+        "cache_stale",
+        "queue_hold",
+        "adapter_scale"
+      ]
+    },
+    "fault_node": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "severity": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "observer_offsets_ms": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "streams": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "example_only": {
+      "type": "boolean"
+    }
+  }
+}

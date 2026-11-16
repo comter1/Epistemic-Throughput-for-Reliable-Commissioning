@@ -1,0 +1,21 @@
+{
+  "command_arguments": [
+    "/home/leiyo/work/cgx_env/bin/python",
+    "-m",
+    "cgx.cli",
+    "run-main",
+    "--data-root",
+    "/work/Users/leiyo/cgx_data",
+    "--workers",
+    "16",
+    "--gpus",
+    "0,1",
+    "--resume"
+  ],
+  "launched_at": "2026-11-13T20:49:42.695825+00:00",
+  "persistent_session": true,
+  "pid": 1009563,
+  "protocol_hash": "fb9c0defe2e4c1365a4db2b69fd7c750bcb2aade59d16dcb79b9cbf48a7b77c7",
+  "state": "running",
+  "stdout": "/work/Users/leiyo/cgx_data/logs/main_driver.log"
+}

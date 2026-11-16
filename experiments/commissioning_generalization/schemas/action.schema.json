@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "action_key",
+    "kind",
+    "ports",
+    "sample_hz",
+    "calibration_pair",
+    "cost_bound"
+  ],
+  "properties": {
+    "action_key": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "single_port",
+        "module_pair",
+        "link_pair",
+        "pair_plus_calibration",
+        "calibration_only",
+        "full_trace",
+        "stop"
+      ]
+    },
+    "ports": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "sample_hz": {
+      "enum": [
+        0,
+        10,
+        50,
+        100
+      ]
+    },
+    "calibration_pair": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "uniqueItems": true
+    },
+    "cost_bound": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "executions",
+        "bytes",
+        "calibrations",
+        "decisions"
+      ],
+      "properties": {
+        "executions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "calibrations": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "decisions": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

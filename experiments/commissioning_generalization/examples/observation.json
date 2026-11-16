@@ -1,0 +1,29 @@
+{
+  "action_key": "single_port_example",
+  "records": [
+    {
+      "port": "n5:in",
+      "local_time_s": 0.1057,
+      "message_token": "opaque-token-a",
+      "event_type": "receive",
+      "values": [
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7
+      ],
+      "missing": false
+    }
+  ],
+  "calibration_bursts": [],
+  "visible_status": "ok",
+  "actual_cost": {
+    "executions": 1,
+    "bytes": 128,
+    "calibrations": 0,
+    "decisions": 1
+  }
+}

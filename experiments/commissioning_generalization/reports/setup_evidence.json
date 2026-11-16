@@ -1,0 +1,522 @@
+{
+  "commands_executed": [
+    [
+      "python",
+      "-m",
+      "venv",
+      "/home/leiyo/work/cgx_env"
+    ],
+    [
+      "/home/leiyo/work/cgx_env/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--upgrade",
+      "pip"
+    ],
+    [
+      "/home/leiyo/work/cgx_env/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "-r",
+      "/work/Users/leiyo/GitHub/Epistemic-Throughput-for-Reliable-Commissioning/experiments/commissioning_generalization/requirements-spec.txt",
+      "zstandard"
+    ],
+    [
+      "/home/leiyo/work/cgx_env/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "torch==2.14.1",
+      "--index-url",
+      "https://download.pytorch.org/whl/cu130"
+    ],
+    [
+      "git",
+      "clone",
+      "--depth",
+      "1",
+      "--filter=blob:none",
+      "--sparse",
+      "https://github.com/google-deepmind/mujoco_menagerie.git",
+      "/home/leiyo/work/cgx_data/assets/mujoco_menagerie"
+    ],
+    [
+      "git",
+      "-C",
+      "/home/leiyo/work/cgx_data/assets/mujoco_menagerie",
+      "sparse-checkout",
+      "set",
+      "franka_emika_panda"
+    ],
+    [
+      "/home/leiyo/work/cgx_env/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--no-deps",
+      "-e",
+      "/work/Users/leiyo/GitHub/Epistemic-Throughput-for-Reliable-Commissioning/experiments/commissioning_generalization"
+    ],
+    [
+      "bash",
+      "/home/leiyo/work/commissioning_handoff/xiaosa_main_experiment_codex/bootstrap_branch.sh",
+      "/work/Users/leiyo/GitHub/Epistemic-Throughput-for-Reliable-Commissioning",
+      "--apply"
+    ]
+  ],
+  "configuration": {
+    "branch": "feat/commissioning-generalization-main",
+    "claims": {
+      "not_claimed": [
+        "general transfer between unrelated machine domains",
+        "exact ET in MuJoCo",
+        "a new GNN or RL algorithm",
+        "guaranteed advantage of GNN or adaptivity"
+      ],
+      "primary": "Frozen acquisition policy on unseen connections at matched resource caps"
+    },
+    "compute": {
+      "allow_auto_driver_update": false,
+      "allow_paid_apis": false,
+      "blas_threads_per_worker": 1,
+      "cpu_worker_rule": "min(16,max(1,allocated_cpu_count//2))",
+      "cpu_workers_default": 16,
+      "data_root_env": "CGX_DATA_ROOT",
+      "default_distributed": false,
+      "disk_free_gb_recommended": 1000,
+      "expected_gpu_family": "NVIDIA B200",
+      "gpu_hours_initial_soft_cap": 320,
+      "gpus": 2,
+      "host_memory_gb_recommended": 128,
+      "jobs_per_gpu": 1
+    },
+    "date": "2026-11-13",
+    "evaluation": {
+      "bootstrap_repetitions": 2000,
+      "bootstrap_unit": "configuration_then_case",
+      "hidden_audit_all_pass_outcome_not_risk_certificate": true,
+      "location_metric": "joint_mechanism_and_location_accuracy",
+      "logscore_improvement_not_exact_MI": true,
+      "main_execution_cap": 4,
+      "multiplicity": "primary_single_contrast_secondary_Holm",
+      "nan_or_timeout_not_dropped": true,
+      "primary_byte_fraction": 0.25,
+      "primary_comparator": "transformer_adaptive",
+      "primary_metric": "mean_final_log_loss_bits",
+      "primary_secondary_comparator": "interface_rule",
+      "primary_suite": "test_connections",
+      "repair_byte_fraction": 0.25,
+      "repair_cases_per_configuration": 64,
+      "repair_configurations_per_test_suite": 4,
+      "repair_methods": [
+        "gnn_adaptive",
+        "transformer_adaptive",
+        "interface_rule",
+        "gnn_fixed_plan"
+      ],
+      "repair_risk_target_validation": 0.05,
+      "repair_threshold_grid": [
+        0.5,
+        0.7,
+        0.8,
+        0.9,
+        0.95,
+        0.99
+      ],
+      "repair_training_seeds": [
+        11,
+        23,
+        37
+      ],
+      "replicates_per_case": 1,
+      "report_all_budgets": true,
+      "required_other_comparisons": [
+        "gnn_fixed_plan",
+        "gnn_myopic",
+        "gnn_depth2"
+      ],
+      "seed_variation_reported_separately": true,
+      "test_seeds_paired_across_methods": true
+    },
+    "experiment_directory": "experiments/commissioning_generalization",
+    "faults": {
+      "adapter_scale_magnitudes": [
+        0.05,
+        0.1,
+        0.15
+      ],
+      "adapter_scale_signs": [
+        -1,
+        1
+      ],
+      "cache_stale_delay_ticks": [
+        2,
+        5,
+        10
+      ],
+      "injector_metadata_public": false,
+      "nominal_parameters_public": true,
+      "queue_hold_delay_ticks": [
+        2,
+        5,
+        10
+      ]
+    },
+    "methods": {
+      "cost_aware_adaptation": {
+        "base_model": "gnn_myopic",
+        "beta_grid": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "claim": "adaptation_of_2024_rule_not_verbatim_reproduction",
+        "weights_chosen_on_validation": true
+      },
+      "learned": [
+        "gnn_adaptive",
+        "transformer_adaptive",
+        "gnn_fixed_plan",
+        "gnn_myopic",
+        "gnn_depth2"
+      ],
+      "nonlearned": [
+        "interface_rule",
+        "full_recording_feasible",
+        "full_recording_unrestricted_reference",
+        "default_only"
+      ],
+      "old_finite_exact": "regression_only",
+      "same_action_catalog": true,
+      "same_public_information": true
+    },
+    "models": {
+      "action_head_hidden": [
+        128,
+        64
+      ],
+      "diagnostic_independent_reader": "relation_transformer_width_256",
+      "diagnostic_primary": "graph_predictor_shared_across_all_policies",
+      "edge_embedding_width": 32,
+      "event_embedding_width": 32,
+      "hidden_width": 128,
+      "message_passing_layers": 3,
+      "node_id_embeddings": false,
+      "numeric_message_id_features": false,
+      "raw_clock_id_embeddings": false,
+      "sum_or_mean_pool": "mean_plus_log_count",
+      "temporal_gru_hidden": 64,
+      "transformer_heads": 4,
+      "transformer_layers": 3,
+      "transformer_sees_relations": true,
+      "variable_node_and_action_heads": true
+    },
+    "observations": {
+      "action_families": [
+        "single_port",
+        "module_pair",
+        "link_pair",
+        "pair_plus_calibration",
+        "calibration_only",
+        "full_trace",
+        "stop"
+      ],
+      "calibration_burst_bytes": 160,
+      "calibrations_per_action_max": 1,
+      "default_external_hz": 10,
+      "encoder_token_cap_per_port_per_run": 256,
+      "max_probe_ports_local_bundle": 4,
+      "max_raw_records_per_port_per_run": 1000,
+      "message_id": "opaque equality-only token mapped to pair-match flags",
+      "raw_log_cost_before_encoding": true,
+      "sample_hz": [
+        10,
+        50,
+        100
+      ],
+      "token_summary_width": 64,
+      "trace_record_bytes": 128
+    },
+    "protocol_id": "CGX-1.0",
+    "reproducibility": {
+      "all_per_case_records_required": true,
+      "asset_git_sha_required": true,
+      "dependency_lock_required": true,
+      "deterministic_eval": true,
+      "exact_bn_for_test_not_provided": true,
+      "random_node_relabeling": true,
+      "rng_streams_separate": true,
+      "test_manifest_sealed_before_training": true,
+      "true_timestamps_never_in_public_stream": true
+    },
+    "resources": {
+      "audit_executions": 20,
+      "byte_fractions": [
+        0.0,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "diagnosis_timeout_seconds_per_call": 2.0,
+      "initial_run_common_and_reported_separately": true,
+      "main_calibration_cap": 2,
+      "main_decision_cap": 6,
+      "main_execution_cap": 4,
+      "reference_executions_for_byte_cap": 4,
+      "round_sensitivity_calibration_cap": 2,
+      "round_sensitivity_decision_cap_rule": "execution_cap_plus_calibration_cap",
+      "round_sensitivity_execution_caps": [
+        1,
+        2,
+        8
+      ],
+      "round_sensitivity_fixed_byte_denominator": true,
+      "selection_timeout_seconds_per_decision": 2.0,
+      "strict_caps": true,
+      "verification_executions_reserved": 2
+    },
+    "seeds": {
+      "behavior_collection": 671915,
+      "bootstrap": 671917,
+      "case_generation": 671914,
+      "crossfit_assignment": 671916,
+      "healthy_qualification": 671918,
+      "manifest": 671913,
+      "training": [
+        11,
+        23,
+        37,
+        53,
+        71
+      ]
+    },
+    "sensing": {
+      "calibration": "four_timestamp_two_way_exchange",
+      "calibration_burst_exchanges": 4,
+      "calibration_link_one_way_mean_ms": 2.0,
+      "calibration_link_one_way_std_ms": 0.5,
+      "calibration_processing_delay_ms": 0.1,
+      "cross_round_clock_offset": "persistent_within_case",
+      "joint_position_std_rad": 0.0001,
+      "joint_velocity_std_rad_s": 0.001,
+      "observer_offset_uniform_ms": [
+        -20.0,
+        20.0
+      ],
+      "perfect_shared_noise_in_main": false,
+      "physical_clock_adjustment": false,
+      "recorder_arm_delay_public": false,
+      "recorder_arm_delay_uniform_ms": [
+        0.0,
+        100.0
+      ],
+      "recorder_phase_uniform_one_sample_period": true,
+      "timestamp_independent_std_ms": 1.0
+    },
+    "splits": {
+      "test_clocks": {
+        "base_graphs_from_train": true,
+        "cases_per_configuration": 128,
+        "clock_partition_holdout": true,
+        "component_count": [
+          8,
+          16
+        ],
+        "configurations": 20
+      },
+      "test_connections": {
+        "cases_per_configuration": 128,
+        "component_count": [
+          8,
+          16
+        ],
+        "configurations": 20,
+        "matched_to": "test_seen"
+      },
+      "test_implementation": {
+        "base_graphs_from_train": true,
+        "cases_per_configuration": 128,
+        "component_count": [
+          8,
+          16
+        ],
+        "configurations": 20,
+        "implementation_version": "B"
+      },
+      "test_seen": {
+        "base_graphs_from_train": true,
+        "cases_per_configuration": 128,
+        "component_count": [
+          8,
+          16
+        ],
+        "configurations": 20
+      },
+      "test_size": {
+        "cases_per_configuration": 128,
+        "component_count": [
+          24,
+          32
+        ],
+        "configurations": 20
+      },
+      "train": {
+        "cases_per_configuration": 256,
+        "component_count": [
+          8,
+          16
+        ],
+        "configurations": 128
+      },
+      "validation": {
+        "cases_per_configuration": 128,
+        "component_count": [
+          8,
+          16
+        ],
+        "configurations": 24
+      }
+    },
+    "status": "implementation_spec_not_executed",
+    "system": {
+      "asset": "google-deepmind/mujoco_menagerie/franka_emika_panda",
+      "clock_domains_size": [
+        3,
+        8
+      ],
+      "clock_domains_source": [
+        2,
+        5
+      ],
+      "control_hz": 100,
+      "controller": "fixed_state_feedback_position_servo",
+      "controller_training": false,
+      "engine": "MuJoCo CPU native bindings",
+      "execution_seconds": 10.0,
+      "graph_types": [
+        "sensor",
+        "cache",
+        "adapter",
+        "controller",
+        "queue",
+        "actuator",
+        "splitter",
+        "merger"
+      ],
+      "hold_seconds": 0.5,
+      "image_inputs": false,
+      "joint_limit_tolerance_rad": 0.001,
+      "physics_dt_seconds": 0.002,
+      "position_tolerance_m": 0.02,
+      "rendering": false,
+      "servo_alpha": 0.2,
+      "servo_velocity_damping_seconds": 0.02,
+      "waypoints": 3
+    },
+    "targets": {
+      "each_family_counts_per_eval_config": 32,
+      "families": [
+        "healthy",
+        "cache_stale",
+        "queue_hold",
+        "adapter_scale"
+      ],
+      "family_probabilities": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "faults_per_case_max": 1,
+      "healthy_counts_per_train_config": 64,
+      "location_distribution": "balanced_uniform_within_applicable_type",
+      "output": "healthy_or_component_mechanism"
+    },
+    "training": {
+      "action_sampling_coverage_min_per_type": 1000,
+      "batch_size": 128,
+      "bellman_loss": "Huber",
+      "checkpoint_interval": 5000,
+      "collection_execution_cap_probabilities": [
+        0.1,
+        0.1,
+        0.7,
+        0.1
+      ],
+      "collection_execution_caps": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "collection_policy_mix": {
+        "fixed_diverse_plan": 0.3,
+        "random_legal": 0.4,
+        "structure_rule": 0.3
+      },
+      "crossfit_folds": 3,
+      "crossfit_unit": "topology",
+      "diagnosis_family_loss": "joint_component_mechanism_cross_entropy",
+      "gamma": 1.0,
+      "grad_clip_norm": 1.0,
+      "gradient_accumulation": 1,
+      "learning_rate": 0.0003,
+      "main_byte_fractions_for_collection": [
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "max_training_executions": 2000000,
+      "online_test_learning": false,
+      "optimizer": "AdamW",
+      "policy_update_cap": 200000,
+      "precision": "bfloat16_autocast_fp32_scores_and_loss",
+      "predictor_update_cap": 100000,
+      "replicates_per_byte_fraction": 2,
+      "reward_clip": null,
+      "reward_floor_probability": 1e-08,
+      "reward_log_base": 2,
+      "source_test_model_oracle": false,
+      "source_trajectories_per_case": 8,
+      "target": "double_q_undiscounted_finite_horizon",
+      "target_update_interval": 1000,
+      "transitions_target_range": [
+        1000000,
+        2000000
+      ],
+      "validation_interval": 5000,
+      "weight_decay": 0.0001
+    }
+  },
+  "dependency_sha256": "41664ef3c0d8de7eecb6428d5137b8c4f8702b29dc1fbca50cbcc3c884f67bcf",
+  "logs": {
+    "/home/leiyo/work/cgx_data/logs/doctor.log": "1fd9ca4fc58de5bf54ecc369d64fa77e4fcfb60c575b2954a891c10e25452075",
+    "/home/leiyo/work/cgx_data/logs/download_asset.log": "c18371bedf3af3fefff5e72d381d9eb865f219d29334c69d545acde635a3d7cb",
+    "/home/leiyo/work/cgx_data/logs/install_cgx.log": "e7fb020f1cc085541bf460871b53cf7bc14dd7046a2cb7fe6f29a692adc4567d",
+    "/home/leiyo/work/cgx_data/logs/install_cpu.log": "8c9abc8b5bcd1a8824a281d1395f68616f035888bc9cdd3604c0c940e0cf7c54",
+    "/home/leiyo/work/cgx_data/logs/install_pip.log": "e8dc36c082b103d6bf6145766b50c42f57142c1f044ed4cd9098d2cc634ba6fc",
+    "/home/leiyo/work/cgx_data/logs/install_torch.log": "30b02596e38de657466dbd6e2b81efc052b2757b8d2c97cfea558818fb373ad0",
+    "/home/leiyo/work/cgx_data/logs/legacy_check_cli.log": "24926780f49a3915657e64c92394f1aa07e3d4f0979a0654a630db58014fe954",
+    "/home/leiyo/work/cgx_data/logs/legacy_tests.log": "385b3f307ab8806f61025b3aea21af2925d88df4dc47c8d64b622871904c56dc"
+  },
+  "network_sources": [
+    "https://mujoco.readthedocs.io/en/stable/python.html",
+    "https://pytorch.org/get-started/previous-versions/",
+    "https://github.com/google-deepmind/mujoco_menagerie"
+  ],
+  "recorded_at": "2026-11-13T20:44:32.560066+00:00",
+  "recovered_setup_failure": {
+    "command": "pip install -e experiments/commissioning_generalization from finite_delay_benchmark_complete cwd",
+    "exit_code": 1,
+    "original_raw_log_retained": false,
+    "reason": "wrong relative working directory; retried successfully with absolute path"
+  },
+  "state": "passed",
+  "timestamp_boundary": "Setup was executed before command_record existed; log mtimes are available, exact per-command start timestamps are not asserted."
+}

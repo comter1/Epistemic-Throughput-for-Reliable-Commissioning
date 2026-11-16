@@ -1,0 +1,59 @@
+{
+  "collection_executions": 473,
+  "collection_transitions": 607,
+  "config_hash": "94c549d9a9eab74fe840ba5b9fcb053f0df93071711c30221ee3e580415ff434",
+  "destination": "/home/leiyo/work/cgx_data_v2/technical_smoke/qualification_seal/technical_smoke/final_1794607942386280812",
+  "elapsed_seconds": 280.5012991570111,
+  "excluded_from_scientific_tables": true,
+  "frozen_rollouts": 64,
+  "independent_same_transcript_reads": 64,
+  "prepared_features": {
+    "compressed_feature_bytes": 167280931,
+    "elapsed_seconds": 17.331237594000413,
+    "fast_feature_bytes": 361815120,
+    "feature_cache_bytes": 529096051,
+    "identity": {
+      "feature_directory": "encoded/4c1e0769736a7d2a53ee57c120c249d9d51e2a17a22f91423b87237b1775a4e4",
+      "feature_version": "cgx.acquired.v2.64bin",
+      "protocol_lock_hash": "17308ede3123e023850065ee1c4ceef7fac1431135c44d9b9567133e20fd6978",
+      "replays": {
+        "train": "63b704833cf3569d88b4b75f3c2138c978267fc1a550c3253b2198f88126de5d",
+        "validation": "4c78bc255cb88a8901d7a8ec82da907ce71b8bc5e46488c7c107d4d741c24516"
+      },
+      "storage_version": "lossless_cgxf_v1"
+    },
+    "manifest_sha256": "a22696b5d0604c8b35d6d0160957351d0a089dda70af586b6632d651df735005",
+    "raw_retention": "lossless compressed observations preserved",
+    "retained_compressed_observation_bytes": 68656361,
+    "state": "passed",
+    "technical_smoke": true,
+    "unique_acquired_histories": 700,
+    "workers": 4
+  },
+  "scoring": {
+    "identity": {
+      "feature_code_hash": "f429bc0d50d70ce58252208d332d3f2a5f49b48bdd38f8e6bbcff062dc0270ef",
+      "feature_version": "cgx.acquired.v2.64bin",
+      "network_code_hash": "da1e32ca428981198339f0215db0d0351193b6a5828b7cec7523e8468c901132",
+      "protocol_hash": "94c549d9a9eab74fe840ba5b9fcb053f0df93071711c30221ee3e580415ff434",
+      "protocol_lock_hash": "17308ede3123e023850065ee1c4ceef7fac1431135c44d9b9567133e20fd6978",
+      "readers": {
+        "0": "23913e6b83d0cd77e5a2f505a574060bdb80e7342e85052da6d65bc88c341a32",
+        "1": "fe22497994572c0b060b57bb8e7db67ff9b83583fb964d84b0d52efbed2ac065",
+        "2": "262aa8509671e2f1d3a504f65c176bd9115387a89dda5703040697d9732d2933"
+      },
+      "replay_hash": "63b704833cf3569d88b4b75f3c2138c978267fc1a550c3253b2198f88126de5d"
+    },
+    "output_hash": "9f919b47308f6a0859796f2e821097189e949d83fb0808525f713f658a2401b2",
+    "state": "passed",
+    "technical_smoke": true,
+    "transitions": 455
+  },
+  "source_cases": 12,
+  "source_hash": "f4f2e291f9a0ab73f6fe0c7d2fcc486a27d1a281fcd827c275a521c3a2249d40",
+  "state": "passed",
+  "technical_batch_size": 128,
+  "technical_smoke": true,
+  "technical_updates_per_model": 100,
+  "validation_cases": 4
+}

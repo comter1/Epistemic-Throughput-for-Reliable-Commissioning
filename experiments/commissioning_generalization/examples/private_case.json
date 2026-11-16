@@ -1,0 +1,20 @@
+{
+  "case_id": "EXAMPLE_ONLY_001",
+  "split": "train",
+  "configuration_id": "EXAMPLE_ONLY_GRAPH",
+  "fault_family": "queue_hold",
+  "fault_node": "n5",
+  "severity": 5,
+  "observer_offsets_ms": {
+    "c0": 3.2,
+    "c1": -8.1,
+    "c2": 5.7,
+    "c3": -1.4
+  },
+  "streams": {
+    "task": 100,
+    "noise": 101,
+    "audit": 102
+  },
+  "example_only": true
+}

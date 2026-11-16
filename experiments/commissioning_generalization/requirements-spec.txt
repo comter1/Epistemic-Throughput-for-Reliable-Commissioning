@@ -1,0 +1,13 @@
+# Specification aids and anticipated CPU dependencies. NOT a frozen main environment.
+# Install PyTorch separately from an official B200-compatible build; lock actual versions.
+numpy>=1.24
+scipy>=1.10
+networkx>=3.0
+pandas>=2.0
+pyarrow>=14
+matplotlib>=3.7
+mujoco>=3.0
+pytest>=7
+jsonschema>=4.18
+psutil>=5.9
+# Codex must generate requirements.lock.txt after real host compatibility tests.

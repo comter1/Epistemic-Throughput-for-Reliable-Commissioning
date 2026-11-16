@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/home/leiyo/work/cgx_env/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "--junitxml=/home/leiyo/work/cgx_data_v2/reports/pytest.xml"
+  ],
+  "elapsed_seconds": 61.978,
+  "errors": 0,
+  "failures": 0,
+  "junit_sha256": "b9f51f994033a429b5d6fb65ac7d6479b99ced17a57672e19a9ed30eee2088cb",
+  "log": "/home/leiyo/work/cgx_data_v2/logs/pytest_release_gate.log",
+  "log_sha256": "d0bc4a49f9c0ff5e5f8460b3ef3cd4bdc30dd98cd2e950b5c0490958181e448c",
+  "skipped": 0,
+  "source_hash": "f4f2e291f9a0ab73f6fe0c7d2fcc486a27d1a281fcd827c275a521c3a2249d40",
+  "state": "passed",
+  "tests": 108
+}
